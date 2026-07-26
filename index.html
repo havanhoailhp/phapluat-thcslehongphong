@@ -89,20 +89,25 @@
         </div>
 
         <!-- THANH MENU CHÍNH -->
-        <div class="bg-white p-2 rounded-2xl border border-slate-200 shadow-md grid grid-cols-3 gap-2">
-            <button onclick="switchTab('posts', this)" class="main-tab-btn active-tab py-3.5 px-2 rounded-xl border border-slate-200 text-slate-700 flex flex-col md:flex-row items-center justify-center gap-2 transition cursor-pointer hover:bg-slate-50">
-                <i class="fas fa-home text-xl text-red-600 floating"></i>
-                <span class="text-xs md:text-base uppercase font-extrabold">TRANG CHỦ</span>
+        <div class="bg-white p-2 rounded-2xl border border-slate-200 shadow-md grid grid-cols-4 gap-1.5">
+            <button onclick="switchTab('posts', this)" class="main-tab-btn active-tab py-3 px-1 rounded-xl border border-slate-200 text-slate-700 flex flex-col items-center justify-center transition cursor-pointer hover:bg-slate-50">
+                <i class="fas fa-home text-lg text-red-600 floating"></i>
+                <span class="text-[11px] md:text-xs uppercase font-extrabold mt-1">TRANG CHỦ</span>
             </button>
             
-            <button onclick="switchTab('quiz', this)" class="main-tab-btn py-3.5 px-2 rounded-xl border border-slate-200 text-slate-700 flex flex-col md:flex-row items-center justify-center gap-2 transition cursor-pointer hover:bg-slate-50">
-                <i class="fas fa-award text-xl text-purple-600 floating"></i>
-                <span class="text-xs md:text-base uppercase font-extrabold">THI TUẦN</span>
+            <button onclick="switchTab('quiz', this)" class="main-tab-btn py-3 px-1 rounded-xl border border-slate-200 text-slate-700 flex flex-col items-center justify-center transition cursor-pointer hover:bg-slate-50">
+                <i class="fas fa-award text-lg text-purple-600 floating"></i>
+                <span class="text-[11px] md:text-xs uppercase font-extrabold mt-1">THI TUẦN</span>
             </button>
 
-            <button onclick="switchTab('advisory', this)" class="main-tab-btn py-3.5 px-2 rounded-xl border border-slate-200 text-slate-700 flex flex-col md:flex-row items-center justify-center gap-2 transition cursor-pointer hover:bg-slate-50">
-                <i class="fas fa-comments text-xl text-green-600 floating"></i>
-                <span class="text-xs md:text-base uppercase font-extrabold">TƯ VẤN</span>
+            <button onclick="switchTab('chatbot', this)" class="main-tab-btn py-3 px-1 rounded-xl border border-slate-200 text-slate-700 flex flex-col items-center justify-center transition cursor-pointer hover:bg-slate-50">
+                <i class="fas fa-robot text-lg text-blue-600 floating"></i>
+                <span class="text-[11px] md:text-xs uppercase font-extrabold mt-1">TRA LUẬT AI</span>
+            </button>
+
+            <button onclick="switchTab('advisory', this)" class="main-tab-btn py-3 px-1 rounded-xl border border-slate-200 text-slate-700 flex flex-col items-center justify-center transition cursor-pointer hover:bg-slate-50">
+                <i class="fas fa-comments text-lg text-green-600 floating"></i>
+                <span class="text-[11px] md:text-xs uppercase font-extrabold mt-1">TƯ VẤN</span>
             </button>
         </div>
 
@@ -150,11 +155,8 @@
                         <i class="fas fa-plus"></i> Thêm câu hỏi
                     </button>
                 </h4>
-                
                 <input type="text" id="admin-quiz-title-input" placeholder="Tên cuộc thi..." class="w-full text-xs md:text-sm p-2.5 border border-slate-300 rounded-xl font-bold bg-white">
-                
                 <div id="admin-questions-builder-list" class="space-y-3 max-h-80 overflow-y-auto pr-1"></div>
-
                 <button onclick="publishCustomQuiz()" class="w-full bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-800 hover:to-purple-950 text-white font-bold text-xs md:text-sm py-3 rounded-xl shadow transition">
                     🚀 LƯU & ĐĂNG ĐỀ THI NÀY LÊN TAB "THI TUẦN"
                 </button>
@@ -169,10 +171,10 @@
                 <div class="bg-white p-2.5 rounded-xl border border-slate-200 max-h-48 overflow-y-auto space-y-2 text-xs" id="admin-advisory-list"></div>
             </div>
 
-            <!-- CHỨC NĂNG 4: THỐNG KÊ KẾT QUẢ THI TẬP TRUNG -->
+            <!-- CHỨC NĂNG 4: THỐNG KÊ KẾT QUẢ THI -->
             <div>
                 <h4 class="font-bold text-xs md:text-sm text-slate-800 mb-2 flex justify-between items-center">
-                    <span><i class="fas fa-chart-bar text-blue-600"></i> 4. Thống kê kết quả thi học sinh (Tập trung):</span>
+                    <span><i class="fas fa-chart-bar text-blue-600"></i> 4. Thống kê kết quả thi học sinh:</span>
                     <button onclick="clearStats()" class="text-xs text-red-600 hover:underline font-bold">Xóa thống kê</button>
                 </h4>
                 <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 max-h-48 overflow-y-auto">
@@ -216,7 +218,6 @@
 
             <div id="dynamic-posts"></div>
 
-            <!-- BÀI VIẾT MẶC ĐỊNH -->
             <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-orange-500" data-category="thongbao">
                 <div class="p-4 flex justify-between items-start gap-3">
                     <div onclick="togglePost(this)" class="cursor-pointer flex-1">
@@ -246,22 +247,6 @@
                 </div>
                 <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
                     Nghị quyết yêu cầu 100% đoàn viên, giáo viên chủ nhiệm phối hợp ứng dụng công nghệ thông tin vào sinh hoạt lớp, lồng ghép giáo dục kỹ năng sống và pháp luật cho học sinh.
-                </div>
-            </div>
-
-            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden" data-category="baoluc">
-                <div class="p-4 flex justify-between items-start gap-3">
-                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-green-100 text-green-700 px-2.5 py-0.5 rounded-full">Bạo lực học đường</span>
-                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">1. Nhận diện Bạo lực học đường tinh thần & Cách ứng phó</h4>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Hành vi cô lập bạn bè và tổng đài hỗ trợ khẩn cấp 111...</p>
-                    </div>
-                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài đăng này">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    Bạo lực học đường không chỉ là đánh nhau, mà còn là hành vi tẩy chay, cô lập bạn. Hãy dũng cảm báo cho Thầy/Cô hoặc gọi Tổng đài Bảo vệ Trẻ em <strong>111</strong>.
                 </div>
             </div>
         </div>
@@ -301,7 +286,103 @@
             </div>
         </div>
 
-        <!-- ================= TAB 3: HỘP THƯ TƯ VẤN "ĐIỀU EM MUỐN NÓI" ================= -->
+        <!-- ================= TAB 3: TRA CỨU PHÁP LUẬT TĨNH & HOI AI TÌNH HUỐNG ================= -->
+        <div id="tab-chatbot" class="tab-content hidden-tab space-y-4">
+            
+            <!-- THÊM TỦ SÁCH PHÁP LUẬT HỌC ĐƯỜNG KÈM LINK CHÍNH THỨC -->
+            <div class="bg-white p-4 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+                <h3 class="font-black text-slate-900 text-sm md:text-base flex items-center gap-2 border-b pb-2">
+                    <i class="fas fa-book-reader text-red-600"></i> Tủ Sách & Tra Cứu Văn Bản Pháp Luật Chuẩn
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 text-xs">
+                    
+                    <div class="p-3 bg-red-50 rounded-2xl border border-red-100 flex flex-col justify-between">
+                        <div>
+                            <span class="font-black text-red-800 block text-xs">📘 LUẬT AN NINH MẠNG 2018</span>
+                            <p class="text-slate-600 mt-1 leading-relaxed">Quy định về bảo vệ thông tin cá nhân, cấm bắt nạt trực tuyến, cấm đăng thông tin sai sự thật trên MXH.</p>
+                        </div>
+                        <a href="https://vanban.chinhphu.vn/?pageid=27160&docid=194158" target="_blank" class="mt-2 text-blue-700 font-bold hover:underline flex items-center gap-1">
+                            <span>Tra cứu toàn văn</span> <i class="fas fa-external-link-alt text-[10px]"></i>
+                        </a>
+                    </div>
+
+                    <div class="p-3 bg-amber-50 rounded-2xl border border-amber-100 flex flex-col justify-between">
+                        <div>
+                            <span class="font-black text-amber-800 block text-xs">🛵 LUẬT GIAO THÔNG ĐƯỜNG BỘ</span>
+                            <p class="text-slate-600 mt-1 leading-relaxed">Quy định bắt buộc đội mũ bảo hiểm; độ tuổi đi xe đạp điện (mọi độ tuổi), xe máy điện/xe dưới 50cc (đủ 16 tuổi trở lên).</p>
+                        </div>
+                        <a href="https://vanban.chinhphu.vn/?pageid=27160&docid=81165" target="_blank" class="mt-2 text-blue-700 font-bold hover:underline flex items-center gap-1">
+                            <span>Tra cứu toàn văn</span> <i class="fas fa-external-link-alt text-[10px]"></i>
+                        </a>
+                    </div>
+
+                    <div class="p-3 bg-green-50 rounded-2xl border border-green-100 flex flex-col justify-between">
+                        <div>
+                            <span class="font-black text-green-800 block text-xs">🛡️ LUẬT TRẺ EM 2016</span>
+                            <p class="text-slate-600 mt-1 leading-relaxed">Quy định các quyền của trẻ em, bảo vệ trẻ em khỏi bạo lực, xâm hại; chức năng Tổng đài Quốc gia 111.</p>
+                        </div>
+                        <a href="https://vanban.chinhphu.vn/?pageid=27160&docid=183842" target="_blank" class="mt-2 text-blue-700 font-bold hover:underline flex items-center gap-1">
+                            <span>Tra cứu toàn văn</span> <i class="fas fa-external-link-alt text-[10px]"></i>
+                        </a>
+                    </div>
+
+                    <div class="p-3 bg-purple-50 rounded-2xl border border-purple-100 flex flex-col justify-between">
+                        <div>
+                            <span class="font-black text-purple-800 block text-xs">🏫 ĐIỀU LỆ TRƯỜNG THCS (BỘ GD&ĐT)</span>
+                            <p class="text-slate-600 mt-1 leading-relaxed">Nội quy ứng xử học đường, hành vi học sinh không được làm, cấm sử dụng thuốc lá điện tử/chất kích thích.</p>
+                        </div>
+                        <a href="https://moet.gov.vn/van-ban/van-ban-manh/Pages/chi-tiet-van-ban.aspx?ItemID=1373" target="_blank" class="mt-2 text-blue-700 font-bold hover:underline flex items-center gap-1">
+                            <span>Tra cứu toàn văn</span> <i class="fas fa-external-link-alt text-[10px]"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHATBOT AI GIẢI ĐÁP TÌNH HUỐNG THỰC TẾ -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-md overflow-hidden flex flex-col h-[480px]">
+                <div class="bg-gradient-to-r from-blue-700 to-blue-900 p-4 text-white flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-white/20 border border-white/40 flex items-center justify-center text-xl floating">
+                            🤖
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-sm md:text-base leading-tight">Trợ Lý AI Tri Thức Pháp Luật Học Đường</h3>
+                            <p class="text-[11px] text-blue-200 flex items-center gap-1 mt-0.5">
+                                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Sẵn sàng giải đáp tình huống 24/7
+                            </p>
+                        </div>
+                    </div>
+                    <span class="text-[10px] bg-blue-950/60 text-yellow-300 font-bold px-2.5 py-1 rounded-full border border-yellow-400/30">THCS Lê Hồng Phong</span>
+                </div>
+
+                <div id="ai-chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-slate-50 text-xs md:text-sm">
+                    <div class="flex items-start gap-2.5 max-w-[85%]">
+                        <div class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs shrink-0 mt-0.5">AI</div>
+                        <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 text-slate-800 shadow-sm leading-relaxed">
+                            Xin chào các em học sinh! Em cần hỏi về tình huống <strong>An toàn giao thông, An ninh mạng, Bạo lực học đường hay Nội quy nhà trường</strong>? Hãy chọn nút gợi ý hoặc gõ câu hỏi cho mình nhé!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="px-3 py-2 bg-white border-t border-slate-100 flex items-center gap-1.5 overflow-x-auto text-[11px] whitespace-nowrap">
+                    <span class="font-bold text-slate-400 shrink-0"><i class="fas fa-lightbulb text-yellow-500"></i> Chủ đề hot:</span>
+                    <button onclick="quickAskAI('Học sinh cấp 2 đi xe máy điện có được không?')" class="bg-blue-50 text-blue-700 hover:bg-blue-100 px-2.5 py-1 rounded-full border border-blue-200 font-medium">Xe máy điện?</button>
+                    <button onclick="quickAskAI('Bị bạn lập nhóm chát nói xấu trên mạng nên làm gì?')" class="bg-blue-50 text-blue-700 hover:bg-blue-100 px-2.5 py-1 rounded-full border border-blue-200 font-medium">Bị chửi trên mạng?</button>
+                    <button onclick="quickAskAI('Bị bạn đe dọa bạo lực thì báo ai?')" class="bg-blue-50 text-blue-700 hover:bg-blue-100 px-2.5 py-1 rounded-full border border-blue-200 font-medium">Bị đe dọa bạo lực?</button>
+                    <button onclick="quickAskAI('Tác hại của thuốc lá điện tử pod vape')" class="bg-blue-50 text-blue-700 hover:bg-blue-100 px-2.5 py-1 rounded-full border border-blue-200 font-medium">Thuốc lá điện tử?</button>
+                </div>
+
+                <div class="p-3 bg-white border-t border-slate-200 flex gap-2">
+                    <input type="text" id="ai-chat-input" onkeypress="handleAIKeyPress(event)" placeholder="Hỏi AI về luật giao thông, mạng xã hội, bạo lực học đường..." class="flex-1 p-2.5 border rounded-xl text-xs md:text-sm focus:outline-none focus:border-blue-600">
+                    <button onclick="sendAIMessage()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-xl font-bold text-xs md:text-sm transition flex items-center gap-1.5 shrink-0">
+                        <span>Gửi</span> <i class="fas fa-paper-plane text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TAB 4: HỘP THƯ TƯ VẤN "ĐIỀU EM MUỐN NÓI" ================= -->
         <div id="tab-advisory" class="tab-content hidden-tab space-y-4">
             <div class="bg-white p-5 md:p-6 rounded-3xl border border-slate-200 shadow-md space-y-4">
                 <div class="border-b pb-3">
@@ -340,8 +421,8 @@
         <p class="text-xs text-red-700 font-bold pt-1">Sáng kiến tuyên truyền Chi bộ Đảng - Thiết kế phần mềm: Thầy Hà Văn Hoài</p>
     </footer>
 
-    <!-- THANH ĐIỀU HƯỚNG APP PHÍA DƯỚI MÀN HÌNH -->
-    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 py-2.5 px-6 flex justify-between items-center max-w-3xl mx-auto z-50 text-slate-400 text-xs shadow-2xl">
+    <!-- THANH ĐIỀU HƯỚNG APP -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 py-2.5 px-4 flex justify-around items-center max-w-3xl mx-auto z-50 text-slate-400 text-xs shadow-2xl">
         <button onclick="switchTab('posts', this)" class="nav-btn active flex flex-col items-center text-red-700 font-bold">
             <i class="fas fa-home text-lg"></i>
             <span class="text-[10px] mt-0.5">Trang chủ</span>
@@ -350,22 +431,22 @@
             <i class="fas fa-award text-lg"></i>
             <span class="text-[10px] mt-0.5">Thi tuần</span>
         </button>
+        <button onclick="switchTab('chatbot', this)" class="nav-btn flex flex-col items-center hover:text-red-700">
+            <i class="fas fa-robot text-lg"></i>
+            <span class="text-[10px] mt-0.5">Tra Luật AI</span>
+        </button>
         <button onclick="switchTab('advisory', this)" class="nav-btn flex flex-col items-center hover:text-red-700">
             <i class="fas fa-comments text-lg"></i>
             <span class="text-[10px] mt-0.5">Tư vấn</span>
         </button>
     </nav>
 
-    <!-- JAVASCRIPT ĐÃ SỬA BẢO MẬT & TẢI ĐỒNG BỘ ĐIỂM THI TẬP TRUNG -->
+    <!-- JAVASCRIPT KHO TRI THỨC AI -->
     <script>
-        // MẬT KHẨU QUẢN TRỊ BẢO MẬT (Thầy có thể đổi '123456' thành mật khẩu riêng của thầy)
         const ADMIN_PASSWORD = "123456"; 
         let isAdminLoggedIn = false;
         let base64Image = ""; 
         const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbjnqpkz"; 
-
-        // DỊCH VỤ ĐỒNG BỘ KẾT QUẢ THI TẬP TRUNG
-        const CENTRAL_STORAGE_BIN = "https://api.jsonbin.io/v3/b/660a1234a21f763804a12345"; 
 
         let activeQuizData = {
             title: "Thi Trắc Nghiệm: Kiến Thức Pháp Luật & Kỹ Năng Sống",
@@ -383,7 +464,86 @@
             initAdminQuizBuilder();
         };
 
-        // ĐĂNG NHẬP BẢO MẬT KHÔNG LỘ MẬT KHẨU
+        function generateAIResponse(userText) {
+            const lower = userText.toLowerCase();
+
+            if (lower.includes("xe máy điện") || lower.includes("xe đạp điện") || lower.includes("độ tuổi") || lower.includes("50cc") || lower.includes("xe máy")) {
+                return "🛵 <strong>Quy định về Giao thông học đường (Luật GTĐB):</strong><br>- <strong>Xe đạp điện</strong> (vận tốc ≤ 25km/h): Học sinh THCS được phép điều khiển, bắt buộc đội mũ bảo hiểm đạt chuẩn.<br>- <strong>Xe máy điện & Xe dưới 50cc:</strong> Luật quy định người từ <strong>đủ 16 tuổi trở lên</strong> mới được đi. Học sinh THCS (từ 11 - 15 tuổi) <strong>CHƯA ĐỦ TUỔI</strong> đi xe máy điện hay xe máy dưới 50cc nhé!";
+            }
+            if (lower.includes("mũ bảo hiểm") || lower.includes("đội mũ") || lower.includes("quai mũ")) {
+                return "🪖 <strong>Quy định Đội mũ bảo hiểm:</strong><br>Học sinh khi ngồi trên xe máy, xe đạp điện, xe máy điện BẮT BUỘC phải đội mũ bảo hiểm đạt chuẩn và cài quai đúng quy cách. Vi phạm không đội mũ sẽ bị phạt tiền từ 400.000đ - 600.000đ đối với người điều khiển và thông báo về nhà trường!";
+            }
+            if (lower.includes("dàn hàng") || lower.includes("lạng lách") || lower.includes("buông tay") || lower.includes("dù") || lower.includes("ô") || lower.includes("điện thoại khi đi xe")) {
+                return "⚠️ <strong>Các hành vi bị nghiêm cấm khi đi xe:</strong><br>1. Dàn hàng ngang từ 3 xe trở lên.<br>2. Lạng lách, đánh võng, buông cả hai tay.<br>3. Sử dụng ô (dù), điện thoại di động hoặc tai nghe khi đang lái xe.";
+            }
+            if (lower.includes("nói xấu") || lower.includes("ghép ảnh") || lower.includes("chửi") || lower.includes("bắt nạt trên mạng") || lower.includes("facebook") || lower.includes("tiktok") || lower.includes("bóc phốt")) {
+                return "💻 <strong>Bắt nạt trực tuyến (Cyberbullying - Luật An ninh mạng):</strong><br>Hành vi lập nhóm chát, đăng bài nói xấu, xúc phạm danh dự, ghép ảnh chế giễu bạn bè trên MXH là vi phạm Luật An ninh mạng.<br>👉 <strong>Cách xử lý cho em:</strong> 1. Chụp màn hình làm bằng chứng. 2. Không chửi lại kẻ bắt nạt. 3. Báo ngay cho Thầy/Cô chủ nhiệm, BGH hoặc cha mẹ để hỗ trợ!";
+            }
+            if (lower.includes("lừa đảo") || lower.includes("nhiệm vụ") || lower.includes("kiếm tiền") || lower.includes("mã otp") || lower.includes("chuyển tiền") || lower.includes("nhận thưởng")) {
+                return "🚨 <strong>Cảnh báo Lừa đảo Công nghệ cao:</strong><br>Kẻ gian thường nhắm vào học sinh qua tin nhắn 'Tuyển cộng tác viên làm nhiệm vụ nhận tiền' hoặc dụ bấm link lạ nhận quà/OTP. Tuyệt đối: KHÔNG cung cấp số điện thoại/OTP của bố mẹ và KHÔNG chuyển tiền!";
+            }
+            if (lower.includes("111") || lower.includes("tổng đài") || lower.includes("bảo vệ trẻ em")) {
+                return "📞 <strong>Tổng đài Quốc gia Bảo vệ Trẻ em 111:</strong><br>Đây là đường dây nóng khẩn cấp hoàn toàn MIỄN PHÍ hoạt động 24/7. Khi em hoặc bạn bè bị bạo lực, xâm hại, đe dọa hoặc gặp khủng hoảng tâm lý, hãy gọi ngay số <strong>111</strong>!";
+            }
+            if (lower.includes("bạo lực") || lower.includes("đánh nhau") || lower.includes("cô lập") || lower.includes("tẩy chay") || lower.includes("đe dọa") || lower.includes("đánh")) {
+                return "🛡️ <strong>Phòng chống Bạo lực Học đường:</strong><br>Bạo lực học đường bao gồm bạo lực thể xác (đánh nhau), bạo lực tinh thần (cô lập, tẩy chay, dọa nạt).<br>👉 Em tuyệt đối không im lặng! Hãy dũng cảm báo cho GVCN, BGH hoặc gửi tin ẩn danh vào tab <strong>'TƯ VẤN'</strong> của trang web này.";
+            }
+            if (lower.includes("thuốc lá") || lower.includes("pod") || lower.includes("vape") || lower.includes("hút")) {
+                return "🚫 <strong>Tác hại Thuốc lá điện tử (Pod/Vape):</strong><br>Thuốc lá điện tử chứa hóa chất Nicotine cực độc gây nghiện, tàn phá phổi và não bộ. Nhà trường cấm tuyệt đối học sinh mua bán, mang theo hoặc sử dụng thuốc lá điện tử!";
+            }
+
+            return "🤖 <strong>Trợ lý AI Pháp Luật Học Đường trả lời:</strong><br>Cảm ơn câu hỏi của em! Vấn đề này thuộc hệ thống Văn bản Pháp luật và Nội quy Học sinh. Em có thể tham khảo mục <strong>TỦ SÁCH PHÁP LUẬT</strong> bên trên hoặc gửi câu hỏi ẩn danh qua tab <strong>'TƯ VẤN'</strong> để Thầy Cô BGH giải đáp trực tiếp cho em nhé!";
+        }
+
+        function sendAIMessage() {
+            const input = document.getElementById('ai-chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const chatContainer = document.getElementById('ai-chat-messages');
+
+            const userHTML = `
+                <div class="flex items-start gap-2.5 max-w-[85%] ml-auto flex-row-reverse">
+                    <div class="w-7 h-7 rounded-full bg-slate-700 text-white flex items-center justify-center text-xs shrink-0 mt-0.5">Em</div>
+                    <div class="bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none shadow-sm leading-relaxed">
+                        ${escapeHTML(text)}
+                    </div>
+                </div>
+            `;
+            chatContainer.insertAdjacentHTML('beforeend', userHTML);
+            input.value = '';
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+
+            setTimeout(() => {
+                const aiReply = generateAIResponse(text);
+                const aiHTML = `
+                    <div class="flex items-start gap-2.5 max-w-[85%]">
+                        <div class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs shrink-0 mt-0.5">AI</div>
+                        <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 text-slate-800 shadow-sm leading-relaxed">
+                            ${aiReply}
+                        </div>
+                    </div>
+                `;
+                chatContainer.insertAdjacentHTML('beforeend', aiHTML);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }, 400);
+        }
+
+        function quickAskAI(question) {
+            document.getElementById('ai-chat-input').value = question;
+            sendAIMessage();
+        }
+
+        function handleAIKeyPress(e) {
+            if (e.key === 'Enter') { sendAIMessage(); }
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+
         function toggleAdminPanel() {
             const adminBox = document.getElementById('admin-box');
             if (adminBox.classList.contains('hidden')) {
@@ -403,7 +563,6 @@
             }
         }
 
-        // NỘP BÀI THI & ĐỒNG BỘ ĐIỂM VỀ MÁY QUẢN TRỊ
         function submitQuiz() {
             const name = document.getElementById('quiz-student-name').value.trim();
             const sClass = document.getElementById('quiz-student-class').value.trim();
@@ -425,12 +584,10 @@
             let finalScore = Math.round((correctCount / totalQ) * 10);
             const timeNow = new Date().toLocaleTimeString() + " " + new Date().toLocaleDateString();
 
-            // 1. Lưu bản sao trên máy học sinh
             const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
             results.push({ name: name, class: sClass, score: `${finalScore}/10 (${correctCount}/${totalQ} câu)`, time: timeNow });
             localStorage.setItem('quizResults', JSON.stringify(results));
 
-            // 2. Gửi bản sao kết quả thi về Email/Trạm lưu trữ tập trung của thầy
             fetch(FORMSPREE_ENDPOINT, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -448,19 +605,18 @@
             
             if (finalScore >= 8) {
                 msg.classList.add('bg-green-100', 'text-green-800');
-                msg.innerHTML = `🎉 Xuất sắc! Học sinh <strong>${name} (${sClass})</strong> đã đạt số điểm: <strong>${finalScore}/10 điểm</strong>! Kết quả đã được ghi nhận vào hệ thống.`;
+                msg.innerHTML = `🎉 Xuất sắc! Học sinh <strong>${name} (${sClass})</strong> đã đạt số điểm: <strong>${finalScore}/10 điểm</strong>! Kết quả đã được lưu hệ thống.`;
             } else {
                 msg.classList.add('bg-amber-100', 'text-amber-800');
                 msg.innerHTML = `Chúc mừng em <strong>${name} (${sClass})</strong> đã hoàn thành bài thi với số điểm: <strong>${finalScore}/10 điểm</strong>!`;
             }
         }
 
-        // TẢI KẾT QUẢ THI
         function loadQuizStats() {
             const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
             const tbody = document.getElementById('quiz-stats-table');
             if (results.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="4" class="text-center py-2 text-slate-400">Chưa có lượt thi nào trên thiết bị này. Kết quả chi tiết của tất cả học sinh cũng được gửi thẳng về Email quản trị của Thầy.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="4" class="text-center py-2 text-slate-400">Chưa có lượt thi nào trên máy này. Bản sao kết quả thi cũng được tự động chuyển về Email quản trị của Thầy.</td></tr>`;
                 return;
             }
             tbody.innerHTML = results.map(r => `
@@ -474,9 +630,61 @@
         }
 
         function clearStats() {
-            if (confirm("Thầy có chắc chắn muốn xóa toàn bộ thống kê lượt thi trên máy này không?")) {
+            if (confirm("Thầy có chắc chắn muốn xóa toàn bộ thống kê lượt thi không?")) {
                 localStorage.removeItem('quizResults');
                 loadQuizStats();
+            }
+        }
+
+        function sendAdvisory() {
+            const topic = document.getElementById('adv-topic').value;
+            const content = document.getElementById('adv-content').value.trim();
+
+            if (!content) { alert("Vui lòng nhập nội dung câu hỏi!"); return; }
+
+            const timeStr = new Date().toLocaleString();
+            const advList = JSON.parse(localStorage.getItem('advisoryResults') || '[]');
+            advList.push({ topic: topic, content: content, time: timeStr });
+            localStorage.setItem('advisoryResults', JSON.stringify(advList));
+
+            fetch(FORMSPREE_ENDPOINT, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    "Trường": "THCS Lê Hồng Phong Đức Trọng",
+                    "Chủ đề": topic,
+                    "Nội dung tư vấn từ HS": content,
+                    "Thời gian": timeStr
+                })
+            }).then(() => {}).catch(() => {});
+
+            alert("🎉 Câu hỏi tư vấn của em đã được gửi bảo mật đến Thầy Cô!");
+            document.getElementById('adv-content').value = '';
+            if (isAdminLoggedIn) { loadAdvisoryStats(); }
+        }
+
+        function loadAdvisoryStats() {
+            const advList = JSON.parse(localStorage.getItem('advisoryResults') || '[]');
+            const container = document.getElementById('admin-advisory-list');
+            if (advList.length === 0) {
+                container.innerHTML = `<p class="text-slate-400 text-center py-2">Chưa có câu hỏi tư vấn nào trên thiết bị này.</p>`;
+                return;
+            }
+            container.innerHTML = advList.map((item) => `
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                    <div class="flex justify-between items-center text-[10px] text-slate-400 mb-1">
+                        <span class="font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded">${item.topic}</span>
+                        <span>${item.time}</span>
+                    </div>
+                    <p class="text-slate-700 font-medium whitespace-pre-line">${item.content}</p>
+                </div>
+            `).join('');
+        }
+
+        function clearAdvisoryStats() {
+            if (confirm("Thầy có chắc chắn muốn xóa tất cả thư tư vấn không?")) {
+                localStorage.removeItem('advisoryResults');
+                loadAdvisoryStats();
             }
         }
 
@@ -559,58 +767,6 @@
             document.getElementById('post-file-image').value = '';
             base64Image = "";
             alert("Đã đăng bài viết cùng Video thành công!");
-        }
-
-        function sendAdvisory() {
-            const topic = document.getElementById('adv-topic').value;
-            const content = document.getElementById('adv-content').value.trim();
-
-            if (!content) { alert("Vui lòng nhập nội dung câu hỏi!"); return; }
-
-            const timeStr = new Date().toLocaleString();
-            const advList = JSON.parse(localStorage.getItem('advisoryResults') || '[]');
-            advList.push({ topic: topic, content: content, time: timeStr });
-            localStorage.setItem('advisoryResults', JSON.stringify(advList));
-
-            fetch(FORMSPREE_ENDPOINT, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    "Trường": "THCS Lê Hồng Phong Đức Trọng",
-                    "Chủ đề": topic,
-                    "Nội dung tư vấn từ HS": content,
-                    "Thời gian": timeStr
-                })
-            }).then(() => {}).catch(() => {});
-
-            alert("🎉 Câu hỏi tư vấn của em đã được gửi bảo mật đến Thầy Cô!");
-            document.getElementById('adv-content').value = '';
-            if (isAdminLoggedIn) { loadAdvisoryStats(); }
-        }
-
-        function loadAdvisoryStats() {
-            const advList = JSON.parse(localStorage.getItem('advisoryResults') || '[]');
-            const container = document.getElementById('admin-advisory-list');
-            if (advList.length === 0) {
-                container.innerHTML = `<p class="text-slate-400 text-center py-2">Chưa có câu hỏi tư vấn nào trên thiết bị này.</p>`;
-                return;
-            }
-            container.innerHTML = advList.map((item) => `
-                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200">
-                    <div class="flex justify-between items-center text-[10px] text-slate-400 mb-1">
-                        <span class="font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded">${item.topic}</span>
-                        <span>${item.time}</span>
-                    </div>
-                    <p class="text-slate-700 font-medium whitespace-pre-line">${item.content}</p>
-                </div>
-            `).join('');
-        }
-
-        function clearAdvisoryStats() {
-            if (confirm("Thầy có chắc chắn muốn xóa tất cả thư tư vấn không?")) {
-                localStorage.removeItem('advisoryResults');
-                loadAdvisoryStats();
-            }
         }
 
         function renderStudentQuizView() {
