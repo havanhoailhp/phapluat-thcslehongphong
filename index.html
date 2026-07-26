@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pháp Luật Học Đường - THCS Lê Hồng Phong Đức Trọng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(250, 204, 21, 0.6)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(250, 204, 21, 0.9)); }
+        }
+        @keyframes float-icon {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+        .logo-glow { animation: pulse-glow 3s infinite; }
+        .floating { animation: float-icon 2.5s infinite ease-in-out; }
+        
+        .post-card { transition: all 0.3s ease; }
+        .post-card.hidden-post { display: none !important; }
+        .btn-filter.active { background-color: #b91c1c; color: white; border-color: #b91c1c; font-weight: bold; }
+        .tab-content.hidden-tab { display: none; }
+        .main-tab-btn.active-tab { background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%); color: white; font-weight: bold; border-color: #facc15; }
+
+        /* MẶC ĐỊNH ẨN NÚT XÓA BÀI (CHỈ HIỆN KHI QUẢN TRỊ ĐĂNG NHẬP) */
+        .admin-delete-btn { display: none !important; }
+        body.is-admin .admin-delete-btn { display: inline-block !important; }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 pb-24">
+
+    <!-- HEADER TRƯỜNG PHÓNG TO NỔI BẬT -->
+    <header class="bg-gradient-to-r from-red-800 via-red-700 to-red-900 text-white shadow-xl sticky top-0 z-50 border-b-2 border-yellow-400">
+        <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3.5">
+                <img src="1785055786113_568965834593483137_568965834593483137_n.jpg" alt="Logo THCS Lê Hồng Phong" class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-yellow-400 bg-white object-contain p-0.5 logo-glow shadow-md">
+                <div>
+                    <h1 class="font-black text-base md:text-xl uppercase tracking-wide text-yellow-300 drop-shadow-md leading-tight">
+                        THCS LÊ HỒNG PHONG
+                    </h1>
+                    <p class="text-xs md:text-sm font-semibold text-white flex items-center gap-1.5 mt-0.5">
+                        <i class="fas fa-star text-yellow-400 text-xs floating"></i> Chi bộ Đảng - Tuyên truyền Pháp luật
+                    </p>
+                    <p class="text-[11px] text-red-200 hidden md:block">Đức Trọng - Lâm Đồng</p>
+                </div>
+            </div>
+            
+            <button onclick="toggleAdminPanel()" class="text-xs bg-yellow-400 hover:bg-yellow-300 text-red-900 font-bold px-3 py-2 rounded-xl flex items-center gap-1.5 transition shadow-md hover:scale-105 active:scale-95">
+                <i class="fas fa-user-shield text-red-700 text-sm"></i> 
+                <span class="hidden md:inline">Quản trị</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- NỘI DUNG CHÍNH -->
+    <main class="max-w-3xl mx-auto px-4 pt-4 space-y-5">
+
+        <!-- BANNER TRANG TRỌNG -->
+        <div class="bg-gradient-to-r from-red-700 via-red-800 to-red-900 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden border border-yellow-400/30">
+            <div class="absolute -right-4 -bottom-4 opacity-15 text-8xl text-yellow-300 pointer-events-none">
+                <i class="fas fa-balance-scale"></i>
+            </div>
+
+            <div class="relative z-10">
+                <div class="flex items-center gap-2">
+                    <span class="bg-yellow-400 text-red-950 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1">
+                        <i class="fas fa-fire text-red-600 floating"></i> Sáng kiến Chi bộ Đảng
+                    </span>
+                    <span class="bg-red-900/80 text-yellow-200 text-[11px] px-2.5 py-1 rounded-full border border-yellow-400/20">THCS Lê Hồng Phong</span>
+                </div>
+
+                <h2 class="text-xl md:text-2xl font-black mt-3 text-white drop-shadow leading-snug">
+                    CỔNG PHỔ BIẾN PHÁP LUẬT HỌC ĐƯỜNG
+                </h2>
+                <p class="text-xs md:text-sm text-red-100 mt-1.5 leading-relaxed">
+                    Trang thông tin sinh động giúp học sinh trang bị kiến thức Luật An ninh mạng, An toàn giao thông & Kỹ năng phòng chống bạo lực.
+                </p>
+                
+                <div class="mt-4 pt-3 border-t border-red-600/60 flex flex-wrap items-center justify-between text-xs text-yellow-200 gap-2">
+                    <span class="flex items-center gap-1.5 font-bold">
+                        <i class="fas fa-laptop-code text-yellow-300 text-sm"></i> Tác giả phần mềm: Thầy Hà Văn Hoài
+                    </span>
+                    <span class="bg-black/20 px-2.5 py-0.5 rounded-full text-[11px] text-red-100">
+                        <i class="fas fa-map-marker-alt text-yellow-400"></i> Đức Trọng, Lâm Đồng
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- THANH MENU CHÍNH TO - RÕ RÀNG - NỔI BẬT -->
+        <div class="bg-white p-2 rounded-2xl border border-slate-200 shadow-md grid grid-cols-3 gap-2">
+            <button onclick="switchTab('posts', this)" class="main-tab-btn active-tab py-3.5 px-2 rounded-xl border border-slate-200 text-slate-700 flex flex-col md:flex-row items-center justify-center gap-2 transition cursor-pointer hover:bg-slate-50">
+                <i class="fas fa-home text-xl text-red-600 floating"></i>
+                <span class="text-xs md:text-base uppercase font-extrabold">TRANG CHỦ</span>
+            </button>
+            
+            <button onclick="switchTab('quiz', this)" class="main-tab-btn py-3.5 px-2 rounded-xl border border-slate-200 text-slate-700 flex flex-col md:flex-row items-center justify-center gap-2 transition cursor-pointer hover:bg-slate-50">
+                <i class="fas fa-award text-xl text-purple-600 floating"></i>
+                <span class="text-xs md:text-base uppercase font-extrabold">THI TUẦN</span>
+            </button>
+
+            <button onclick="switchTab('advisory', this)" class="main-tab-btn py-3.5 px-2 rounded-xl border border-slate-200 text-slate-700 flex flex-col md:flex-row items-center justify-center gap-2 transition cursor-pointer hover:bg-slate-50">
+                <i class="fas fa-comments text-xl text-green-600 floating"></i>
+                <span class="text-xs md:text-base uppercase font-extrabold">TƯ VẤN</span>
+            </button>
+        </div>
+
+        <!-- BẢNG QUẢN TRỊ DÀNH CHO THẦY HOÀI -->
+        <div id="admin-box" class="hidden bg-white p-5 rounded-2xl border-2 border-red-500 shadow-xl space-y-5">
+            <div class="flex justify-between items-center border-b pb-2">
+                <h3 class="font-bold text-red-700 text-sm md:text-base flex items-center gap-2">
+                    <i class="fas fa-user-cog text-xl"></i> Bảng Quản Trị Hệ Thống
+                </h3>
+                <span class="text-xs bg-red-100 text-red-700 px-2.5 py-1 rounded-full font-bold">Thầy Hà Văn Hoài</span>
+            </div>
+
+            <!-- CHỨC NĂNG 1: ĐĂNG BÀI VIẾT / THÔNG BÁO / CÔNG VĂN / VIDEO (YOUTUBE HOẶC FACEBOOK) -->
+            <div class="space-y-2.5 border-b pb-4">
+                <h4 class="font-bold text-xs md:text-sm text-slate-800 flex items-center gap-1.5">
+                    <i class="fas fa-pen-square text-red-600"></i> 1. Đăng bài viết / Thông báo / Video mới:
+                </h4>
+                <select id="post-category" class="w-full text-xs md:text-sm p-2.5 border border-slate-300 rounded-xl font-medium">
+                    <option value="thongbao">Thông báo nhà trường</option>
+                    <option value="chibo">Văn bản Chi bộ Đảng</option>
+                    <option value="baoluc">Bạo lực học đường</option>
+                    <option value="anninhmang">An ninh mạng</option>
+                    <option value="giaothong">An toàn giao thông</option>
+                </select>
+                <input type="text" id="post-title" placeholder="Tiêu đề bài viết..." class="w-full text-xs md:text-sm p-2.5 border border-slate-300 rounded-xl font-semibold">
+                <textarea id="post-content" rows="3" placeholder="Nội dung bài viết..." class="w-full text-xs md:text-sm p-2.5 border border-slate-300 rounded-xl"></textarea>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                    <div class="bg-slate-50 p-2 rounded-xl border border-slate-200">
+                        <span class="block font-semibold mb-1 text-slate-600">Tải ảnh từ máy:</span>
+                        <input type="file" id="post-file-image" accept="image/*" onchange="previewFileImage(this)" class="w-full text-[11px]">
+                    </div>
+                    <div class="bg-slate-50 p-2 rounded-xl border border-slate-200">
+                        <span class="block font-semibold mb-1 text-slate-600">Link Video (YouTube hoặc Facebook):</span>
+                        <input type="text" id="post-video-url" placeholder="Dán link YouTube hoặc link video Facebook..." class="w-full p-1.5 border border-slate-300 rounded text-xs">
+                    </div>
+                </div>
+                <button onclick="publishPost()" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold text-xs md:text-sm py-2.5 rounded-xl shadow transition">ĐĂNG BÀI LÊN WEBSITE NGAY</button>
+            </div>
+
+            <!-- CHỨC NĂNG 2: TỰ SOẠN & ĐĂNG BỘ ĐỀ THI TRẮC NGHIỆM ĐỘNG -->
+            <div class="space-y-3 border-b pb-4 bg-purple-50 p-4 rounded-2xl border border-purple-200">
+                <h4 class="font-bold text-xs md:text-sm text-purple-900 flex items-center justify-between">
+                    <span class="flex items-center gap-1.5"><i class="fas fa-edit text-purple-700"></i> 2. Quản lý Đề thi Trắc nghiệm Tuần:</span>
+                    <button onclick="addAdminQuestionInput()" class="bg-purple-700 hover:bg-purple-800 text-white text-[11px] font-bold px-2.5 py-1 rounded-lg transition">
+                        <i class="fas fa-plus"></i> Thêm câu hỏi
+                    </button>
+                </h4>
+                
+                <input type="text" id="admin-quiz-title-input" placeholder="Tên cuộc thi..." class="w-full text-xs md:text-sm p-2.5 border border-slate-300 rounded-xl font-bold bg-white">
+                
+                <div id="admin-questions-builder-list" class="space-y-3 max-h-80 overflow-y-auto pr-1"></div>
+
+                <button onclick="publishCustomQuiz()" class="w-full bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-800 hover:to-purple-950 text-white font-bold text-xs md:text-sm py-3 rounded-xl shadow transition">
+                    🚀 LƯU & ĐĂNG ĐỀ THI NÀY LÊN TAB "THI TUẦN"
+                </button>
+            </div>
+
+            <!-- CHỨC NĂNG 3: DỰ LIỆU CÂU HỎI TƯ VẤN CỦA HỌC SINH -->
+            <div class="space-y-2 border-b pb-4 bg-green-50 p-3.5 rounded-2xl border border-green-200">
+                <h4 class="font-bold text-xs md:text-sm text-green-900 flex justify-between items-center">
+                    <span><i class="fas fa-envelope-open-text text-green-700"></i> 3. Hộp thư tư vấn ẩn danh từ Học sinh:</span>
+                    <button onclick="clearAdvisoryStats()" class="text-xs text-red-600 hover:underline font-bold">Xóa thư</button>
+                </h4>
+                <div class="bg-white p-2.5 rounded-xl border border-slate-200 max-h-48 overflow-y-auto space-y-2 text-xs" id="admin-advisory-list"></div>
+            </div>
+
+            <!-- CHỨC NĂNG 4: THỐNG KÊ KẾT QUẢ THI HỌC SINH -->
+            <div>
+                <h4 class="font-bold text-xs md:text-sm text-slate-800 mb-2 flex justify-between items-center">
+                    <span><i class="fas fa-chart-bar text-blue-600"></i> 4. Thống kê kết quả thi học sinh:</span>
+                    <button onclick="clearStats()" class="text-xs text-red-600 hover:underline font-bold">Xóa thống kê</button>
+                </h4>
+                <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 max-h-48 overflow-y-auto">
+                    <table class="w-full text-left text-xs">
+                        <thead>
+                            <tr class="border-b text-slate-500 font-bold">
+                                <th class="pb-1.5">Họ tên HS</th>
+                                <th class="pb-1.5">Lớp</th>
+                                <th class="pb-1.5">Điểm</th>
+                                <th class="pb-1.5">Thời gian</th>
+                            </tr>
+                        </thead>
+                        <tbody id="quiz-stats-table"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TAB 1: TRANG CHỦ BÀI VIẾT ================= -->
+        <div id="tab-posts" class="tab-content space-y-4">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-center text-xs">
+                <button onclick="filterCategory('all', this)" class="btn-filter active bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm font-bold flex items-center justify-center gap-1.5">
+                    <i class="fas fa-th-large text-red-600"></i> Tất cả
+                </button>
+                <button onclick="filterCategory('thongbao', this)" class="btn-filter bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm font-bold flex items-center justify-center gap-1.5">
+                    <i class="fas fa-bell text-orange-500"></i> Thông báo
+                </button>
+                <button onclick="filterCategory('chibo', this)" class="btn-filter bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm font-bold flex items-center justify-center gap-1.5">
+                    <i class="fas fa-file-alt text-red-700"></i> Văn bản Chi bộ
+                </button>
+                <button onclick="filterCategory('baoluc', this)" class="btn-filter bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm font-bold flex items-center justify-center gap-1.5">
+                    <i class="fas fa-user-shield text-green-600"></i> Bạo lực học đường
+                </button>
+                <button onclick="filterCategory('anninhmang', this)" class="btn-filter bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm font-bold flex items-center justify-center gap-1.5">
+                    <i class="fas fa-shield-alt text-blue-600"></i> An ninh mạng
+                </button>
+                <button onclick="filterCategory('giaothong', this)" class="btn-filter bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm font-bold flex items-center justify-center gap-1.5">
+                    <i class="fas fa-motorcycle text-amber-600"></i> Giao thông
+                </button>
+            </div>
+
+            <div id="dynamic-posts"></div>
+
+            <!-- BÀI VIẾT MẶC ĐỊNH -->
+            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-orange-500" data-category="thongbao">
+                <div class="p-4 flex justify-between items-start gap-3">
+                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
+                        <span class="text-xs font-bold bg-orange-100 text-orange-700 px-2.5 py-0.5 rounded-full">Thông báo Khẩn</span>
+                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">Thông báo: Phát động Cuộc thi "Học sinh THCS với Pháp luật Học đường" năm 2026</h4>
+                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Kế hoạch triển khai cuộc thi trắc nghiệm tìm hiểu pháp luật hàng tuần...</p>
+                    </div>
+                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài đăng này">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
+                    Nhà trường phát động cuộc thi trực tuyến hàng tuần. Tất cả học sinh tham gia làm bài trắc nghiệm ở mục <strong>"THI TUẦN"</strong>. Các em đạt điểm tối đa sẽ được Tuyên dương dưới cờ.
+                </div>
+            </div>
+
+            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-red-600" data-category="chibo">
+                <div class="p-4 flex justify-between items-start gap-3">
+                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
+                        <span class="text-xs font-bold bg-red-100 text-red-700 px-2.5 py-0.5 rounded-full">Chi bộ Đảng THCS Lê Hồng Phong</span>
+                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">Nghị quyết Chi bộ: Đẩy mạnh chuyển đổi số trong Tuyên truyền Pháp luật Học đường</h4>
+                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Kế hoạch chỉ đạo các hoạt động tuyên truyền An toàn giao thông, Văn hóa mạng...</p>
+                    </div>
+                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài đăng này">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
+                    Nghị quyết yêu cầu 100% đoàn viên, giáo viên chủ nhiệm phối hợp ứng dụng công nghệ thông tin vào sinh hoạt lớp, lồng ghép giáo dục kỹ năng sống và pháp luật cho học sinh.
+                </div>
+            </div>
+
+            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden" data-category="baoluc">
+                <div class="p-4 flex justify-between items-start gap-3">
+                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
+                        <span class="text-xs font-bold bg-green-100 text-green-700 px-2.5 py-0.5 rounded-full">Bạo lực học đường</span>
+                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">1. Nhận diện Bạo lực học đường tinh thần & Cách ứng phó</h4>
+                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Hành vi cô lập bạn bè và tổng đài hỗ trợ khẩn cấp 111...</p>
+                    </div>
+                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài đăng này">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
+                    Bạo lực học đường không chỉ là đánh nhau, mà còn là hành vi tẩy chay, cô lập bạn. Hãy dũng cảm báo cho Thầy/Cô hoặc gọi Tổng đài Bảo vệ Trẻ em <strong>111</strong>.
+                </div>
+            </div>
+
+            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden" data-category="anninhmang">
+                <div class="p-4 flex justify-between items-start gap-3">
+                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
+                        <span class="text-xs font-bold bg-blue-100 text-blue-700 px-2.5 py-0.5 rounded-full">An ninh mạng</span>
+                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">1. Cảnh báo: Lừa đảo công nghệ cao nhắm vào học sinh THCS</h4>
+                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Thủ đoạn lừa đảo qua tin nhắn tuyển cộng tác viên, mã OTP và nhận thưởng...</p>
+                    </div>
+                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài đăng này">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
+                    Tuyệt đối không cung cấp thông tin cá nhân, số điện thoại của cha mẹ, không nhấp vào các đường link lạ gửi qua Messenger hay TikTok.
+                </div>
+            </div>
+
+            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden" data-category="giaothong">
+                <div class="p-4 flex justify-between items-start gap-3">
+                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
+                        <span class="text-xs font-bold bg-amber-100 text-amber-700 px-2.5 py-0.5 rounded-full">An toàn giao thông</span>
+                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">1. Quy định về độ tuổi điều khiển xe đạp điện và xe máy điện</h4>
+                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Phân biệt xe đạp điện và xe máy điện dành cho học sinh cấp 2...</p>
+                    </div>
+                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài đăng này">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
+                    - <strong>Xe đạp điện</strong> (vận tốc ≤ 25km/h): Học sinh THCS được phép đi, bắt buộc đội mũ bảo hiểm.
+                    <br>- <strong>Xe máy điện / Xe dưới 50cc:</strong> Người từ <strong>đủ 16 tuổi trở lên</strong> mới được đi.
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TAB 2: CUỘC THI TRẮC NGHIỆM TUẦN ================= -->
+        <div id="tab-quiz" class="tab-content hidden-tab space-y-4">
+            <div class="bg-white p-5 md:p-6 rounded-3xl border border-slate-200 shadow-md space-y-4">
+                <div class="border-b pb-3 flex justify-between items-start">
+                    <div>
+                        <span class="bg-purple-100 text-purple-700 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">Hội thi tuần này</span>
+                        <h3 id="display-quiz-main-title" class="text-base md:text-xl font-black text-slate-900 mt-1.5">Thi Trắc Nghiệm: Kiến Thức Pháp Luật & Kỹ Năng Sống</h3>
+                        <p id="display-quiz-sub-desc" class="text-xs text-slate-500 mt-0.5">Hoàn thành bài thi dưới đây để nhận tuyên dương tuần!</p>
+                    </div>
+                    <div class="text-purple-600 text-3xl floating">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 text-xs md:text-sm bg-purple-50/60 p-3.5 rounded-2xl border border-purple-100">
+                    <div>
+                        <label class="font-bold text-slate-700 block mb-1">Họ và tên học sinh (*):</label>
+                        <input type="text" id="quiz-student-name" placeholder="Ví dụ: Nguyễn Văn An" class="w-full p-2.5 border rounded-xl focus:outline-none focus:border-purple-600 bg-white font-semibold">
+                    </div>
+                    <div>
+                        <label class="font-bold text-slate-700 block mb-1">Lớp (*):</label>
+                        <input type="text" id="quiz-student-class" placeholder="Ví dụ: 8A1" class="w-full p-2.5 border rounded-xl focus:outline-none focus:border-purple-600 bg-white font-semibold">
+                    </div>
+                </div>
+
+                <div id="quiz-student-questions-container" class="space-y-4 text-xs md:text-sm"></div>
+
+                <button onclick="submitQuiz()" class="w-full bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-800 hover:to-purple-950 text-white font-black text-sm md:text-base py-3.5 rounded-2xl shadow-lg transition transform active:scale-98">
+                    NỘP BÀI & XEM KẾT QUẢ NGAY
+                </button>
+
+                <div id="quiz-result-msg" class="hidden p-4 rounded-2xl text-sm font-bold text-center shadow-inner"></div>
+            </div>
+        </div>
+
+        <!-- ================= TAB 3: HỘP THƯ TƯ VẤN "ĐIỀU EM MUỐN NÓI" ================= -->
+        <div id="tab-advisory" class="tab-content hidden-tab space-y-4">
+            <div class="bg-white p-5 md:p-6 rounded-3xl border border-slate-200 shadow-md space-y-4">
+                <div class="border-b pb-3">
+                    <span class="bg-green-100 text-green-700 text-xs font-black px-3 py-1 rounded-full uppercase">Ẩn danh & Bảo mật 100%</span>
+                    <h3 class="text-base md:text-xl font-black text-slate-900 mt-1.5">Hộp Thư Tư Vấn Pháp Luật & Tâm Lý Học Đường</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Các em gửi câu hỏi thắc mắc hoặc báo cáo khó khăn đến Chi bộ & Thầy Cô. Tin nhắn sẽ được bảo mật tuyệt đối.</p>
+                </div>
+
+                <div class="space-y-3.5 text-xs md:text-sm">
+                    <div>
+                        <label class="font-bold text-slate-700 block mb-1">Chủ đề em cần tư vấn:</label>
+                        <select id="adv-topic" class="w-full p-2.5 border rounded-xl focus:outline-none font-medium">
+                            <option>Hỏi đáp về Luật An ninh mạng & Mạng xã hội</option>
+                            <option>Phòng chống Bạo lực học đường & Bắt nạt bạn bè</option>
+                            <option>Tư vấn Tâm lý lứa tuổi học sinh THCS</option>
+                            <option>Ý kiến đóng góp khác cho Nhà trường</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-bold text-slate-700 block mb-1">Nội dung em muốn chia sẻ (Hoàn toàn ẩn danh nếu không ghi tên):</label>
+                        <textarea id="adv-content" rows="4" placeholder="Nhập câu hỏi hoặc tình huống em muốn nhờ Thầy Cô giải đáp..." class="w-full p-3 border rounded-xl focus:outline-none focus:border-green-600 leading-relaxed"></textarea>
+                    </div>
+                    <button onclick="sendAdvisory()" class="w-full bg-gradient-to-r from-green-700 to-green-900 text-white font-black text-sm md:text-base py-3.5 rounded-2xl shadow-lg transition flex items-center justify-center gap-2">
+                        <i class="fas fa-paper-plane"></i> GỬI CÂU HỎI TƯ VẤN NGAY
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER CHUẨN ĐỊA CHỈ TRƯỜNG & TÁC GIẢ -->
+    <footer class="max-w-3xl mx-auto px-4 py-6 text-center text-xs text-slate-500 border-t border-slate-200 mt-10 mb-16 space-y-1.5 bg-white rounded-t-3xl shadow-inner">
+        <p class="font-black text-slate-900 text-sm md:text-base uppercase tracking-wide">TRƯỜNG TRUNG HỌC CƠ SỞ LÊ HỌNG PHONG</p>
+        <p class="text-xs font-medium text-slate-600"><i class="fas fa-map-marker-alt text-red-600"></i> Địa chỉ: 04 Đường Lê Hồng Phong - Xã Đức Trọng - Lâm Đồng</p>
+        <p class="text-xs text-red-700 font-bold pt-1">Sáng kiến tuyên truyền Chi bộ Đảng - Thiết kế phần mềm: Thầy Hà Văn Hoài</p>
+    </footer>
+
+    <!-- THANH ĐIỀU HƯỚNG APP PHÍA DƯỚI MÀN HÌNH -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 py-2.5 px-6 flex justify-between items-center max-w-3xl mx-auto z-50 text-slate-400 text-xs shadow-2xl">
+        <button onclick="switchTab('posts', this)" class="nav-btn active flex flex-col items-center text-red-700 font-bold">
+            <i class="fas fa-home text-lg"></i>
+            <span class="text-[10px] mt-0.5">Trang chủ</span>
+        </button>
+        <button onclick="switchTab('quiz', this)" class="nav-btn flex flex-col items-center hover:text-red-700">
+            <i class="fas fa-award text-lg"></i>
+            <span class="text-[10px] mt-0.5">Thi tuần</span>
+        </button>
+        <button onclick="switchTab('advisory', this)" class="nav-btn flex flex-col items-center hover:text-red-700">
+            <i class="fas fa-comments text-lg"></i>
+            <span class="text-[10px] mt-0.5">Tư vấn</span>
+        </button>
+    </nav>
+
+    <!-- JAVASCRIPT ĐÃ CẬP NHẬT NHẬN ĐIỆN CẢ YOUTUBE VÀ FACEBOOK VIDEO -->
+    <script>
+        const ADMIN_PASSWORD = "123456"; 
+        let isAdminLoggedIn = false;
+        let base64Image = ""; 
+        const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbjnqpkz"; 
+
+        let activeQuizData = {
+            title: "Thi Trắc Nghiệm: Kiến Thức Pháp Luật & Kỹ Năng Sống",
+            questions: [
+                { text: "Học sinh cấp 2 đi xe đạp điện có bắt buộc phải đội mũ bảo hiểm không?", optionA: "Bắt buộc đội mũ bảo hiểm đạt chuẩn và cài dây đúng quy cách.", optionB: "Không bắt buộc, chỉ xe máy mới cần đội.", correct: "A" },
+                { text: "Độ tuổi tối thiểu theo Luật quy định để điều khiển xe máy điện / xe dưới 50cc là bao nhiêu?", optionA: "Từ đủ 14 tuổi trở lên.", optionB: "Từ đủ 16 tuổi trở lên.", correct: "B" },
+                { text: "Hành vi nào sau đây bị NGHIÊM CẤM khi tham gia giao thông trước cổng trường?", optionA: "Dàn hàng ngang 3, hàng 4, lạng lách và buông cả hai tay.", optionB: "Đi sát lề đường bên phải và quan sát khi qua đường.", correct: "A" },
+                { text: "Khi người lạ nhắn tin dụ dỗ em làm 'nhiệm vụ online' nhận tiền thưởng, em nên làm gì?", optionA: "Làm theo ngay để kiếm tiền tiêu xài.", optionB: "Cảnh giác, tuyệt đối không chuyển tiền/OTP và báo cho cha mẹ, thầy cô.", correct: "B" },
+                { text: "Hành vi lập nhóm mạng xã hội để nói xấu, ghép ảnh chế giễu bạn cùng lớp vi phạm Luật gì?", optionA: "Luật An ninh mạng (Bắt nạt trực tuyến - Cyberbullying).", optionB: "Không vi phạm vì chỉ là trò đùa vui.", correct: "A" }
+            ]
+        };
+
+        window.onload = function() {
+            renderStudentQuizView();
+            initAdminQuizBuilder();
+        };
+
+        // HÀM TẠO KHUNG PHÁT VIDEO CHUẨN CHO CẢ YOUTUBE VÀ FACEBOOK
+        function generateVideoEmbedHTML(url) {
+            if (!url) return "";
+            let trimmed = url.trim();
+
+            // KIỂM TRA LINK YOUTUBE
+            if (trimmed.includes('youtube.com') || trimmed.includes('youtu.be') || (trimmed.length === 11 && !trimmed.includes('/') && !trimmed.includes('.'))) {
+                let ytID = extractYouTubeID(trimmed);
+                if (ytID) {
+                    return `
+                        <div class="relative w-full overflow-hidden rounded-2xl aspect-video my-2.5 bg-black shadow-md">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/${ytID}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>`;
+                }
+            }
+
+            // KIỂM TRA LINK FACEBOOK
+            if (trimmed.includes('facebook.com') || trimmed.includes('fb.watch')) {
+                let encodedUrl = encodeURIComponent(trimmed);
+                return `
+                    <div class="relative w-full overflow-hidden rounded-2xl aspect-video my-2.5 bg-black shadow-md flex items-center justify-center">
+                        <iframe class="w-full h-full" src="https://www.facebook.com/plugins/video.php?href=${encodedUrl}&show_text=0&width=500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    </div>`;
+            }
+
+            return "";
+        }
+
+        function extractYouTubeID(url) {
+            if (!url) return "";
+            let trimmed = url.trim();
+            if (trimmed.length === 11 && !trimmed.includes('/') && !trimmed.includes('.')) { return trimmed; }
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = trimmed.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : "";
+        }
+
+        function publishPost() {
+            const cat = document.getElementById('post-category').value;
+            const title = document.getElementById('post-title').value.trim();
+            const content = document.getElementById('post-content').value.trim();
+            const videoUrl = document.getElementById('post-video-url').value.trim();
+
+            if (!title || !content) { alert("Vui lòng nhập Tiêu đề và Nội dung!"); return; }
+
+            let catName = "Thông báo"; let catColor = "bg-orange-100 text-orange-700";
+            if (cat === 'chibo') { catName = "Chi bộ THCS Lê Hồng Phong"; catColor = "bg-red-100 text-red-700"; }
+            if (cat === 'baoluc') { catName = "Bạo lực học đường"; catColor = "bg-green-100 text-green-700"; }
+            if (cat === 'anninhmang') { catName = "An ninh mạng"; catColor = "bg-blue-100 text-blue-700"; }
+            if (cat === 'giaothong') { catName = "An toàn giao thông"; catColor = "bg-amber-100 text-amber-700"; }
+
+            let imgTag = base64Image ? `<img src="${base64Image}" class="w-full h-auto rounded-2xl my-2.5 max-h-96 object-cover shadow-sm">` : '';
+            let videoTag = generateVideoEmbedHTML(videoUrl);
+
+            const postHTML = `
+                <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3.5 overflow-hidden border-l-4 border-l-red-600" data-category="${cat}">
+                    <div class="p-4 flex justify-between items-start gap-3">
+                        <div onclick="togglePost(this)" class="cursor-pointer flex-1">
+                            <span class="text-xs font-bold ${catColor} px-2.5 py-0.5 rounded-full">${catName}</span>
+                            <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">${title}</h4>
+                            <p class="text-xs text-slate-500 mt-1 line-clamp-1">${content}</p>
+                        </div>
+                        <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài đăng này">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed whitespace-pre-line">
+                        ${content}
+                        ${imgTag}
+                        ${videoTag}
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('dynamic-posts').insertAdjacentHTML('afterbegin', postHTML);
+            
+            document.getElementById('post-title').value = '';
+            document.getElementById('post-content').value = '';
+            document.getElementById('post-video-url').value = '';
+            document.getElementById('post-file-image').value = '';
+            base64Image = "";
+            alert("Đã đăng bài viết cùng Video thành công!");
+        }
+
+        function sendAdvisory() {
+            const topic = document.getElementById('adv-topic').value;
+            const content = document.getElementById('adv-content').value.trim();
+
+            if (!content) { alert("Vui lòng nhập nội dung câu hỏi!"); return; }
+
+            const timeStr = new Date().toLocaleString();
+            const advList = JSON.parse(localStorage.getItem('advisoryResults') || '[]');
+            advList.push({ topic: topic, content: content, time: timeStr });
+            localStorage.setItem('advisoryResults', JSON.stringify(advList));
+
+            fetch(FORMSPREE_ENDPOINT, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    "Trường": "THCS Lê Hồng Phong Đức Trọng",
+                    "Chủ đề": topic,
+                    "Nội dung tư vấn từ HS": content,
+                    "Thời gian": timeStr
+                })
+            }).then(() => {}).catch(() => {});
+
+            alert("🎉 Câu hỏi tư vấn của em đã được gửi bảo mật đến Thầy Cô!");
+            document.getElementById('adv-content').value = '';
+            if (isAdminLoggedIn) { loadAdvisoryStats(); }
+        }
+
+        function loadAdvisoryStats() {
+            const advList = JSON.parse(localStorage.getItem('advisoryResults') || '[]');
+            const container = document.getElementById('admin-advisory-list');
+            if (advList.length === 0) {
+                container.innerHTML = `<p class="text-slate-400 text-center py-2">Chưa có câu hỏi tư vấn nào.</p>`;
+                return;
+            }
+            container.innerHTML = advList.map((item) => `
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                    <div class="flex justify-between items-center text-[10px] text-slate-400 mb-1">
+                        <span class="font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded">${item.topic}</span>
+                        <span>${item.time}</span>
+                    </div>
+                    <p class="text-slate-700 font-medium whitespace-pre-line">${item.content}</p>
+                </div>
+            `).join('');
+        }
+
+        function clearAdvisoryStats() {
+            if (confirm("Thầy có chắc chắn muốn xóa tất cả thư tư vấn không?")) {
+                localStorage.removeItem('advisoryResults');
+                loadAdvisoryStats();
+            }
+        }
+
+        function renderStudentQuizView() {
+            document.getElementById('display-quiz-main-title').innerText = activeQuizData.title;
+            document.getElementById('display-quiz-sub-desc').innerText = `Các em hoàn thành ${activeQuizData.questions.length} câu hỏi trắc nghiệm dưới đây để nhận tuyên dương!`;
+
+            const container = document.getElementById('quiz-student-questions-container');
+            container.innerHTML = activeQuizData.questions.map((q, idx) => `
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                    <p class="font-bold text-slate-900">Câu ${idx + 1}: ${q.text}</p>
+                    <label class="flex items-center gap-2.5 cursor-pointer p-2 bg-white rounded-xl border hover:border-purple-500 transition">
+                        <input type="radio" name="student_q_${idx}" value="A"> <span>A. ${q.optionA}</span>
+                    </label>
+                    <label class="flex items-center gap-2.5 cursor-pointer p-2 bg-white rounded-xl border hover:border-purple-500 transition">
+                        <input type="radio" name="student_q_${idx}" value="B"> <span>B. ${q.optionB}</span>
+                    </label>
+                </div>
+            `).join('');
+        }
+
+        function initAdminQuizBuilder() {
+            document.getElementById('admin-quiz-title-input').value = activeQuizData.title;
+            const builderContainer = document.getElementById('admin-questions-builder-list');
+            builderContainer.innerHTML = '';
+            activeQuizData.questions.forEach((q, idx) => {
+                builderContainer.insertAdjacentHTML('beforeend', createQuestionInputHTML(idx + 1, q.text, q.optionA, q.optionB, q.correct));
+            });
+        }
+
+        function createQuestionInputHTML(num, qText = "", opA = "", opB = "", corr = "A") {
+            return `
+                <div class="q-builder-item p-3 bg-white rounded-xl border border-purple-200 text-xs space-y-2 relative">
+                    <div class="flex justify-between items-center">
+                        <span class="font-extrabold text-purple-900">Câu hỏi số ${num}</span>
+                        <button onclick="removeAdminQuestion(this)" class="text-red-500 hover:text-red-700 text-[11px] font-bold">Xóa câu này</button>
+                    </div>
+                    <input type="text" class="q-text-input w-full p-2 border rounded-lg font-semibold" placeholder="Nhập nội dung câu hỏi..." value="${qText}">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <input type="text" class="q-opa-input w-full p-1.5 border rounded-lg" placeholder="Đáp án A..." value="${opA}">
+                        <input type="text" class="q-opb-input w-full p-1.5 border rounded-lg" placeholder="Đáp án B..." value="${opB}">
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-slate-600">Đáp án ĐÚNG là:</span>
+                        <select class="q-corr-select p-1 border rounded-lg font-bold text-green-700 bg-slate-50">
+                            <option value="A" ${corr === 'A' ? 'selected' : ''}>Đáp án A</option>
+                            <option value="B" ${corr === 'B' ? 'selected' : ''}>Đáp án B</option>
+                        </select>
+                    </div>
+                </div>
+            `;
+        }
+
+        function addAdminQuestionInput() {
+            const list = document.getElementById('admin-questions-builder-list');
+            const count = list.children.length + 1;
+            list.insertAdjacentHTML('beforeend', createQuestionInputHTML(count));
+        }
+
+        function removeAdminQuestion(btn) {
+            btn.closest('.q-builder-item').remove();
+            document.querySelectorAll('.q-builder-item').forEach((item, idx) => {
+                item.querySelector('span').innerText = `Câu hỏi số ${idx + 1}`;
+            });
+        }
+
+        function publishCustomQuiz() {
+            const title = document.getElementById('admin-quiz-title-input').value.trim();
+            if (!title) { alert("Vui lòng nhập Tên cuộc thi!"); return; }
+
+            const items = document.querySelectorAll('.q-builder-item');
+            if (items.length === 0) { alert("Thầy phải có ít nhất 1 câu hỏi!"); return; }
+
+            let newQuestions = [];
+            let isValid = true;
+
+            items.forEach((item) => {
+                const text = item.querySelector('.q-text-input').value.trim();
+                const opA = item.querySelector('.q-opa-input').value.trim();
+                const opB = item.querySelector('.q-opb-input').value.trim();
+                const corr = item.querySelector('.q-corr-select').value;
+
+                if (!text || !opA || !opB) { isValid = false; }
+                newQuestions.push({ text: text, optionA: opA, optionB: opB, correct: corr });
+            });
+
+            if (!isValid) {
+                alert("Thầy vui lòng điền đầy đủ Nội dung câu hỏi và Đáp án A, B cho tất cả các câu!");
+                return;
+            }
+
+            activeQuizData.title = title;
+            activeQuizData.questions = newQuestions;
+            renderStudentQuizView();
+            alert(`🎉 Đã cập nhật bộ đề thi trắc nghiệm mới (${newQuestions.length} câu) thành công!`);
+        }
+
+        function submitQuiz() {
+            const name = document.getElementById('quiz-student-name').value.trim();
+            const sClass = document.getElementById('quiz-student-class').value.trim();
+
+            if (!name || !sClass) { alert("Vui lòng điền Họ tên và Lớp trước khi nộp bài!"); return; }
+
+            const totalQ = activeQuizData.questions.length;
+            let correctCount = 0;
+
+            for (let i = 0; i < totalQ; i++) {
+                const selected = document.querySelector(`input[name="student_q_${i}"]:checked`);
+                if (!selected) {
+                    alert(`Em chưa trả lời Câu số ${i + 1}. Vui lòng làm đủ tất cả các câu hỏi!`);
+                    return;
+                }
+                if (selected.value === activeQuizData.questions[i].correct) { correctCount++; }
+            }
+
+            let finalScore = Math.round((correctCount / totalQ) * 10);
+            const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
+            results.push({ name: name, class: sClass, score: `${finalScore}/10 (${correctCount}/${totalQ} câu)`, time: new Date().toLocaleTimeString() });
+            localStorage.setItem('quizResults', JSON.stringify(results));
+
+            const msg = document.getElementById('quiz-result-msg');
+            msg.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-amber-100', 'text-amber-800');
+            
+            if (finalScore >= 8) {
+                msg.classList.add('bg-green-100', 'text-green-800');
+                msg.innerHTML = `🎉 Xuất sắc! Học sinh <strong>${name} (${sClass})</strong> đã đạt số điểm: <strong>${finalScore}/10 điểm</strong>!`;
+            } else {
+                msg.classList.add('bg-amber-100', 'text-amber-800');
+                msg.innerHTML = `Chúc mừng em <strong>${name} (${sClass})</strong> đã hoàn thành bài thi với số điểm: <strong>${finalScore}/10 điểm</strong>!`;
+            }
+        }
+
+        function loadQuizStats() {
+            const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
+            const tbody = document.getElementById('quiz-stats-table');
+            if (results.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="text-center py-2 text-slate-400">Chưa có lượt thi nào.</td></tr>`;
+                return;
+            }
+            tbody.innerHTML = results.map(r => `
+                <tr class="border-b">
+                    <td class="py-1.5 font-bold">${r.name}</td>
+                    <td>${r.class}</td>
+                    <td class="font-extrabold text-green-700">${r.score}</td>
+                    <td class="text-slate-400 text-[10px]">${r.time}</td>
+                </tr>
+            `).join('');
+        }
+
+        function clearStats() {
+            if (confirm("Thầy có chắc chắn muốn xóa toàn bộ thống kê lượt thi không?")) {
+                localStorage.removeItem('quizResults');
+                loadQuizStats();
+            }
+        }
+
+        function switchTab(tabName, element) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden-tab'));
+            document.getElementById('tab-' + tabName).classList.remove('hidden-tab');
+            
+            document.querySelectorAll('.main-tab-btn').forEach(btn => btn.classList.remove('active-tab'));
+            if (element.classList.contains('main-tab-btn')) {
+                element.classList.add('active-tab');
+            }
+        }
+
+        function toggleAdminPanel() {
+            const adminBox = document.getElementById('admin-box');
+            if (adminBox.classList.contains('hidden')) {
+                const pass = prompt("Nhập mật khẩu Quản trị (Mặc định: 123456):");
+                if (pass === ADMIN_PASSWORD) {
+                    isAdminLoggedIn = true;
+                    document.body.classList.add('is-admin');
+                    adminBox.classList.remove('hidden');
+                    loadQuizStats();
+                    loadAdvisoryStats();
+                    alert("Đã đăng nhập Quản trị viên!");
+                } else if (pass !== null) {
+                    alert("Mật khẩu không đúng!");
+                }
+            } else {
+                adminBox.classList.add('hidden');
+            }
+        }
+
+        function deletePost(btn) {
+            if (!isAdminLoggedIn) { alert("Chỉ Quản trị viên mới có quyền xóa bài!"); return; }
+            if (confirm("Thầy có chắc chắn muốn XÓA bài đăng này không?")) {
+                btn.closest('.post-card').remove();
+                alert("Đã gỡ bài đăng thành công!");
+            }
+        }
+
+        function previewFileImage(input) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) { base64Image = e.target.result; }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function togglePost(element) {
+            const card = element.closest('.post-card');
+            card.querySelector('.post-content').classList.toggle('hidden');
+        }
+
+        function filterCategory(category, element) {
+            document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            document.querySelectorAll('.post-card').forEach(post => {
+                if (category === 'all' || post.getAttribute('data-category') === category) {
+                    post.classList.remove('hidden-post');
+                } else {
+                    post.classList.add('hidden-post');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
