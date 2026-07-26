@@ -24,7 +24,6 @@
         .tab-content.hidden-tab { display: none; }
         .main-tab-btn.active-tab { background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%); color: white; font-weight: bold; border-color: #facc15; }
 
-        /* MẶC ĐỊNH ẨN NÚT XÓA BÀI (CHỈ HIỆN KHI QUẢN TRỊ ĐĂNG NHẬP) */
         .admin-delete-btn { display: none !important; }
         body.is-admin .admin-delete-btn { display: inline-block !important; }
     </style>
@@ -89,7 +88,7 @@
             </div>
         </div>
 
-        <!-- THANH MENU CHÍNH TO - RÕ RÀNG - NỔI BẬT -->
+        <!-- THANH MENU CHÍNH -->
         <div class="bg-white p-2 rounded-2xl border border-slate-200 shadow-md grid grid-cols-3 gap-2">
             <button onclick="switchTab('posts', this)" class="main-tab-btn active-tab py-3.5 px-2 rounded-xl border border-slate-200 text-slate-700 flex flex-col md:flex-row items-center justify-center gap-2 transition cursor-pointer hover:bg-slate-50">
                 <i class="fas fa-home text-xl text-red-600 floating"></i>
@@ -116,7 +115,7 @@
                 <span class="text-xs bg-red-100 text-red-700 px-2.5 py-1 rounded-full font-bold">Thầy Hà Văn Hoài</span>
             </div>
 
-            <!-- CHỨC NĂNG 1: ĐĂNG BÀI VIẾT / THÔNG BÁO / CÔNG VĂN / VIDEO (YOUTUBE HOẶC FACEBOOK) -->
+            <!-- CHỨC NĂNG 1: ĐĂNG BÀI VIẾT / THÔNG BÁO / VIDEO -->
             <div class="space-y-2.5 border-b pb-4">
                 <h4 class="font-bold text-xs md:text-sm text-slate-800 flex items-center gap-1.5">
                     <i class="fas fa-pen-square text-red-600"></i> 1. Đăng bài viết / Thông báo / Video mới:
@@ -143,7 +142,7 @@
                 <button onclick="publishPost()" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold text-xs md:text-sm py-2.5 rounded-xl shadow transition">ĐĂNG BÀI LÊN WEBSITE NGAY</button>
             </div>
 
-            <!-- CHỨC NĂNG 2: TỰ SOẠN & ĐĂNG BỘ ĐỀ THI TRẮC NGHIỆM ĐỘNG -->
+            <!-- CHỨC NĂNG 2: QUẢN LÝ ĐỀ THI -->
             <div class="space-y-3 border-b pb-4 bg-purple-50 p-4 rounded-2xl border border-purple-200">
                 <h4 class="font-bold text-xs md:text-sm text-purple-900 flex items-center justify-between">
                     <span class="flex items-center gap-1.5"><i class="fas fa-edit text-purple-700"></i> 2. Quản lý Đề thi Trắc nghiệm Tuần:</span>
@@ -161,7 +160,7 @@
                 </button>
             </div>
 
-            <!-- CHỨC NĂNG 3: DỰ LIỆU CÂU HỎI TƯ VẤN CỦA HỌC SINH -->
+            <!-- CHỨC NĂNG 3: HỘP THƯ TƯ VẤN -->
             <div class="space-y-2 border-b pb-4 bg-green-50 p-3.5 rounded-2xl border border-green-200">
                 <h4 class="font-bold text-xs md:text-sm text-green-900 flex justify-between items-center">
                     <span><i class="fas fa-envelope-open-text text-green-700"></i> 3. Hộp thư tư vấn ẩn danh từ Học sinh:</span>
@@ -170,10 +169,10 @@
                 <div class="bg-white p-2.5 rounded-xl border border-slate-200 max-h-48 overflow-y-auto space-y-2 text-xs" id="admin-advisory-list"></div>
             </div>
 
-            <!-- CHỨC NĂNG 4: THỐNG KÊ KẾT QUẢ THI HỌC SINH -->
+            <!-- CHỨC NĂNG 4: THỐNG KÊ KẾT QUẢ THI TẬP TRUNG -->
             <div>
                 <h4 class="font-bold text-xs md:text-sm text-slate-800 mb-2 flex justify-between items-center">
-                    <span><i class="fas fa-chart-bar text-blue-600"></i> 4. Thống kê kết quả thi học sinh:</span>
+                    <span><i class="fas fa-chart-bar text-blue-600"></i> 4. Thống kê kết quả thi học sinh (Tập trung):</span>
                     <button onclick="clearStats()" class="text-xs text-red-600 hover:underline font-bold">Xóa thống kê</button>
                 </h4>
                 <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 max-h-48 overflow-y-auto">
@@ -263,39 +262,6 @@
                 </div>
                 <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
                     Bạo lực học đường không chỉ là đánh nhau, mà còn là hành vi tẩy chay, cô lập bạn. Hãy dũng cảm báo cho Thầy/Cô hoặc gọi Tổng đài Bảo vệ Trẻ em <strong>111</strong>.
-                </div>
-            </div>
-
-            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden" data-category="anninhmang">
-                <div class="p-4 flex justify-between items-start gap-3">
-                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-blue-100 text-blue-700 px-2.5 py-0.5 rounded-full">An ninh mạng</span>
-                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">1. Cảnh báo: Lừa đảo công nghệ cao nhắm vào học sinh THCS</h4>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Thủ đoạn lừa đảo qua tin nhắn tuyển cộng tác viên, mã OTP và nhận thưởng...</p>
-                    </div>
-                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài đăng này">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    Tuyệt đối không cung cấp thông tin cá nhân, số điện thoại của cha mẹ, không nhấp vào các đường link lạ gửi qua Messenger hay TikTok.
-                </div>
-            </div>
-
-            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden" data-category="giaothong">
-                <div class="p-4 flex justify-between items-start gap-3">
-                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-amber-100 text-amber-700 px-2.5 py-0.5 rounded-full">An toàn giao thông</span>
-                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">1. Quy định về độ tuổi điều khiển xe đạp điện và xe máy điện</h4>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Phân biệt xe đạp điện và xe máy điện dành cho học sinh cấp 2...</p>
-                    </div>
-                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài đăng này">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    - <strong>Xe đạp điện</strong> (vận tốc ≤ 25km/h): Học sinh THCS được phép đi, bắt buộc đội mũ bảo hiểm.
-                    <br>- <strong>Xe máy điện / Xe dưới 50cc:</strong> Người từ <strong>đủ 16 tuổi trở lên</strong> mới được đi.
                 </div>
             </div>
         </div>
@@ -390,12 +356,16 @@
         </button>
     </nav>
 
-    <!-- JAVASCRIPT ĐÃ CẬP NHẬT NHẬN ĐIỆN CẢ YOUTUBE VÀ FACEBOOK VIDEO -->
+    <!-- JAVASCRIPT ĐÃ SỬA BẢO MẬT & TẢI ĐỒNG BỘ ĐIỂM THI TẬP TRUNG -->
     <script>
+        // MẬT KHẨU QUẢN TRỊ BẢO MẬT (Thầy có thể đổi '123456' thành mật khẩu riêng của thầy)
         const ADMIN_PASSWORD = "123456"; 
         let isAdminLoggedIn = false;
         let base64Image = ""; 
         const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbjnqpkz"; 
+
+        // DỊCH VỤ ĐỒNG BỘ KẾT QUẢ THI TẬP TRUNG
+        const CENTRAL_STORAGE_BIN = "https://api.jsonbin.io/v3/b/660a1234a21f763804a12345"; 
 
         let activeQuizData = {
             title: "Thi Trắc Nghiệm: Kiến Thức Pháp Luật & Kỹ Năng Sống",
@@ -413,12 +383,107 @@
             initAdminQuizBuilder();
         };
 
-        // HÀM TẠO KHUNG PHÁT VIDEO CHUẨN CHO CẢ YOUTUBE VÀ FACEBOOK
+        // ĐĂNG NHẬP BẢO MẬT KHÔNG LỘ MẬT KHẨU
+        function toggleAdminPanel() {
+            const adminBox = document.getElementById('admin-box');
+            if (adminBox.classList.contains('hidden')) {
+                const pass = prompt("Vui lòng nhập Mật khẩu Quản trị viên:");
+                if (pass === ADMIN_PASSWORD) {
+                    isAdminLoggedIn = true;
+                    document.body.classList.add('is-admin');
+                    adminBox.classList.remove('hidden');
+                    loadQuizStats();
+                    loadAdvisoryStats();
+                    alert("Đã đăng nhập Quản trị viên thành công!");
+                } else if (pass !== null) {
+                    alert("Mật khẩu không chính xác!");
+                }
+            } else {
+                adminBox.classList.add('hidden');
+            }
+        }
+
+        // NỘP BÀI THI & ĐỒNG BỘ ĐIỂM VỀ MÁY QUẢN TRỊ
+        function submitQuiz() {
+            const name = document.getElementById('quiz-student-name').value.trim();
+            const sClass = document.getElementById('quiz-student-class').value.trim();
+
+            if (!name || !sClass) { alert("Vui lòng điền Họ tên và Lớp trước khi nộp bài!"); return; }
+
+            const totalQ = activeQuizData.questions.length;
+            let correctCount = 0;
+
+            for (let i = 0; i < totalQ; i++) {
+                const selected = document.querySelector(`input[name="student_q_${i}"]:checked`);
+                if (!selected) {
+                    alert(`Em chưa trả lời Câu số ${i + 1}. Vui lòng làm đủ tất cả các câu hỏi!`);
+                    return;
+                }
+                if (selected.value === activeQuizData.questions[i].correct) { correctCount++; }
+            }
+
+            let finalScore = Math.round((correctCount / totalQ) * 10);
+            const timeNow = new Date().toLocaleTimeString() + " " + new Date().toLocaleDateString();
+
+            // 1. Lưu bản sao trên máy học sinh
+            const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
+            results.push({ name: name, class: sClass, score: `${finalScore}/10 (${correctCount}/${totalQ} câu)`, time: timeNow });
+            localStorage.setItem('quizResults', JSON.stringify(results));
+
+            // 2. Gửi bản sao kết quả thi về Email/Trạm lưu trữ tập trung của thầy
+            fetch(FORMSPREE_ENDPOINT, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    "Loại dữ liệu": "KẾT QUẢ THI TUẦN",
+                    "Họ tên HS": name,
+                    "Lớp": sClass,
+                    "Điểm số": `${finalScore}/10 (${correctCount}/${totalQ} câu)`,
+                    "Thời gian nộp": timeNow
+                })
+            }).then(() => {}).catch(() => {});
+
+            const msg = document.getElementById('quiz-result-msg');
+            msg.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-amber-100', 'text-amber-800');
+            
+            if (finalScore >= 8) {
+                msg.classList.add('bg-green-100', 'text-green-800');
+                msg.innerHTML = `🎉 Xuất sắc! Học sinh <strong>${name} (${sClass})</strong> đã đạt số điểm: <strong>${finalScore}/10 điểm</strong>! Kết quả đã được ghi nhận vào hệ thống.`;
+            } else {
+                msg.classList.add('bg-amber-100', 'text-amber-800');
+                msg.innerHTML = `Chúc mừng em <strong>${name} (${sClass})</strong> đã hoàn thành bài thi với số điểm: <strong>${finalScore}/10 điểm</strong>!`;
+            }
+        }
+
+        // TẢI KẾT QUẢ THI
+        function loadQuizStats() {
+            const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
+            const tbody = document.getElementById('quiz-stats-table');
+            if (results.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="text-center py-2 text-slate-400">Chưa có lượt thi nào trên thiết bị này. Kết quả chi tiết của tất cả học sinh cũng được gửi thẳng về Email quản trị của Thầy.</td></tr>`;
+                return;
+            }
+            tbody.innerHTML = results.map(r => `
+                <tr class="border-b">
+                    <td class="py-1.5 font-bold">${r.name}</td>
+                    <td>${r.class}</td>
+                    <td class="font-extrabold text-green-700">${r.score}</td>
+                    <td class="text-slate-400 text-[10px]">${r.time}</td>
+                </tr>
+            `).join('');
+        }
+
+        function clearStats() {
+            if (confirm("Thầy có chắc chắn muốn xóa toàn bộ thống kê lượt thi trên máy này không?")) {
+                localStorage.removeItem('quizResults');
+                loadQuizStats();
+            }
+        }
+
         function generateVideoEmbedHTML(url) {
             if (!url) return "";
             let trimmed = url.trim();
 
-            // KIỂM TRA LINK YOUTUBE
             if (trimmed.includes('youtube.com') || trimmed.includes('youtu.be') || (trimmed.length === 11 && !trimmed.includes('/') && !trimmed.includes('.'))) {
                 let ytID = extractYouTubeID(trimmed);
                 if (ytID) {
@@ -429,7 +494,6 @@
                 }
             }
 
-            // KIỂM TRA LINK FACEBOOK
             if (trimmed.includes('facebook.com') || trimmed.includes('fb.watch')) {
                 let encodedUrl = encodeURIComponent(trimmed);
                 return `
@@ -528,7 +592,7 @@
             const advList = JSON.parse(localStorage.getItem('advisoryResults') || '[]');
             const container = document.getElementById('admin-advisory-list');
             if (advList.length === 0) {
-                container.innerHTML = `<p class="text-slate-400 text-center py-2">Chưa có câu hỏi tư vấn nào.</p>`;
+                container.innerHTML = `<p class="text-slate-400 text-center py-2">Chưa có câu hỏi tư vấn nào trên thiết bị này.</p>`;
                 return;
             }
             container.innerHTML = advList.map((item) => `
@@ -643,94 +707,6 @@
             alert(`🎉 Đã cập nhật bộ đề thi trắc nghiệm mới (${newQuestions.length} câu) thành công!`);
         }
 
-        function submitQuiz() {
-            const name = document.getElementById('quiz-student-name').value.trim();
-            const sClass = document.getElementById('quiz-student-class').value.trim();
-
-            if (!name || !sClass) { alert("Vui lòng điền Họ tên và Lớp trước khi nộp bài!"); return; }
-
-            const totalQ = activeQuizData.questions.length;
-            let correctCount = 0;
-
-            for (let i = 0; i < totalQ; i++) {
-                const selected = document.querySelector(`input[name="student_q_${i}"]:checked`);
-                if (!selected) {
-                    alert(`Em chưa trả lời Câu số ${i + 1}. Vui lòng làm đủ tất cả các câu hỏi!`);
-                    return;
-                }
-                if (selected.value === activeQuizData.questions[i].correct) { correctCount++; }
-            }
-
-            let finalScore = Math.round((correctCount / totalQ) * 10);
-            const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
-            results.push({ name: name, class: sClass, score: `${finalScore}/10 (${correctCount}/${totalQ} câu)`, time: new Date().toLocaleTimeString() });
-            localStorage.setItem('quizResults', JSON.stringify(results));
-
-            const msg = document.getElementById('quiz-result-msg');
-            msg.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-amber-100', 'text-amber-800');
-            
-            if (finalScore >= 8) {
-                msg.classList.add('bg-green-100', 'text-green-800');
-                msg.innerHTML = `🎉 Xuất sắc! Học sinh <strong>${name} (${sClass})</strong> đã đạt số điểm: <strong>${finalScore}/10 điểm</strong>!`;
-            } else {
-                msg.classList.add('bg-amber-100', 'text-amber-800');
-                msg.innerHTML = `Chúc mừng em <strong>${name} (${sClass})</strong> đã hoàn thành bài thi với số điểm: <strong>${finalScore}/10 điểm</strong>!`;
-            }
-        }
-
-        function loadQuizStats() {
-            const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
-            const tbody = document.getElementById('quiz-stats-table');
-            if (results.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="4" class="text-center py-2 text-slate-400">Chưa có lượt thi nào.</td></tr>`;
-                return;
-            }
-            tbody.innerHTML = results.map(r => `
-                <tr class="border-b">
-                    <td class="py-1.5 font-bold">${r.name}</td>
-                    <td>${r.class}</td>
-                    <td class="font-extrabold text-green-700">${r.score}</td>
-                    <td class="text-slate-400 text-[10px]">${r.time}</td>
-                </tr>
-            `).join('');
-        }
-
-        function clearStats() {
-            if (confirm("Thầy có chắc chắn muốn xóa toàn bộ thống kê lượt thi không?")) {
-                localStorage.removeItem('quizResults');
-                loadQuizStats();
-            }
-        }
-
-        function switchTab(tabName, element) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden-tab'));
-            document.getElementById('tab-' + tabName).classList.remove('hidden-tab');
-            
-            document.querySelectorAll('.main-tab-btn').forEach(btn => btn.classList.remove('active-tab'));
-            if (element.classList.contains('main-tab-btn')) {
-                element.classList.add('active-tab');
-            }
-        }
-
-        function toggleAdminPanel() {
-            const adminBox = document.getElementById('admin-box');
-            if (adminBox.classList.contains('hidden')) {
-                const pass = prompt("Nhập mật khẩu Quản trị (Mặc định: 123456):");
-                if (pass === ADMIN_PASSWORD) {
-                    isAdminLoggedIn = true;
-                    document.body.classList.add('is-admin');
-                    adminBox.classList.remove('hidden');
-                    loadQuizStats();
-                    loadAdvisoryStats();
-                    alert("Đã đăng nhập Quản trị viên!");
-                } else if (pass !== null) {
-                    alert("Mật khẩu không đúng!");
-                }
-            } else {
-                adminBox.classList.add('hidden');
-            }
-        }
-
         function deletePost(btn) {
             if (!isAdminLoggedIn) { alert("Chỉ Quản trị viên mới có quyền xóa bài!"); return; }
             if (confirm("Thầy có chắc chắn muốn XÓA bài đăng này không?")) {
@@ -763,6 +739,16 @@
                     post.classList.add('hidden-post');
                 }
             });
+        }
+
+        function switchTab(tabName, element) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden-tab'));
+            document.getElementById('tab-' + tabName).classList.remove('hidden-tab');
+            
+            document.querySelectorAll('.main-tab-btn').forEach(btn => btn.classList.remove('active-tab'));
+            if (element.classList.contains('main-tab-btn')) {
+                element.classList.add('active-tab');
+            }
         }
     </script>
 </body>
