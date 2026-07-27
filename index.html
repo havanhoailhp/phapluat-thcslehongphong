@@ -200,7 +200,7 @@
             </div>
         </div>
 
-        <!-- ================= TAB 1: TRANG CHỦ BÀI VIẾT (ĐÃ BỔ SUNG 2 BÀI VĂN BẢN MỚI KH 05 & KH 06) ================= -->
+        <!-- ================= TAB 1: TRANG CHỦ BÀI VIẾT ================= -->
         <div id="tab-posts" class="tab-content space-y-4">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-center text-xs">
                 <button onclick="filterCategory('all', this)" class="btn-filter active bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm font-bold flex items-center justify-center gap-1.5">
@@ -228,55 +228,91 @@
 
             <div id="dynamic-posts"></div>
 
-            <!-- BÀI MỚI 1: BỘ QUY TẮC ỨNG XỬ VĂN HÓA MẠNG (KH 05/KH-THCSLHP) -->
+            <!-- BÀI VIẾT MỚI NHẤT 1: CẬP NHẬT ĐẦY ĐỦ NGUYÊN VĂN KH 05/KH-THCSLHP -->
             <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-purple-600" data-category="binhdan">
                 <div class="p-4 flex justify-between items-start gap-3">
                     <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-purple-100 text-purple-800 px-2.5 py-0.5 rounded-full">Bình dân học vụ số & Văn hóa số</span>
-                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">Kế hoạch 05/KH-THCSLHP: Tuyên truyền Bộ Quy tắc ứng xử văn hóa trên môi trường số năm học 2025 - 2026</h4>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Thực hiện Công văn 1274/SGDĐT-CTrTT&CTHSSV của Sở GDĐT Lâm Đồng...</p>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] font-black bg-red-600 text-white px-2 py-0.5 rounded-md uppercase animate-pulse">[BÀI VIẾT MỚI NHẤT]</span>
+                            <span class="text-xs font-bold bg-purple-100 text-purple-800 px-2.5 py-0.5 rounded-full">Bình dân học vụ số & Văn hóa số</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1.5">Kế hoạch 05/KH-THCSLHP: Triển khai tuyên truyền Bộ Quy tắc ứng xử văn hóa trên môi trường số năm học 2025 - 2026</h4>
+                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Thực hiện Công văn 1274/SGDĐT-CTrTT&CTHSSV ngày 27/3/2026 của Sở GDĐT Lâm Đồng...</p>
                     </div>
                     <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
                         <i class="fas fa-trash-alt"></i>
                     </button>
                 </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    Trường THCS Lê Hồng Phong ban hành Kế hoạch số 05/KH-THCSLHP ngày 31/3/2026 về việc triển khai tuyên truyền Bộ Quy tắc ứng xử văn hóa trên môi trường số[cite: 2].
-                    <br><br>
-                    <strong>🎯 Trọng tâm thực hiện cho học sinh và giáo viên:</strong>
-                    <ul class="list-disc pl-5 mt-1 space-y-1">
-                        <li>100% cán bộ, giáo viên và học sinh toàn trường được phổ biến, quán triệt nắm vững chuẩn mực ứng xử số[cite: 2].</li>
-                        <li>Trang bị kỹ năng nhận diện thông tin xấu độc, tin giả và bảo vệ dữ liệu cá nhân an toàn[cite: 2].</li>
-                        <li>Nói KHÔNG với ngôn ngữ phản cảm, không chia sẻ tin chưa kiểm chứng[cite: 2].</li>
-                        <li>Phát động phong trào <em>"Gìn giữ sự trong sáng của Tiếng Việt trên môi trường mạng"</em> và <em>"Giữ gìn bản sắc văn hóa ứng xử của dân tộc trên môi trường mạng"</em>[cite: 2].</li>
+                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed space-y-3">
+                    <div class="bg-purple-50 p-3 rounded-xl border border-purple-200 font-medium text-purple-900">
+                        📌 <strong>CĂN CỨ VĂN BẢN:</strong> Kế hoạch số 05/KH-THCSLHP ban hành ngày 31/3/2026 của Trường THCS Lê Hồng Phong (Theo Công văn số 1274/SGDĐT-CTrTT&CTHSSV ngày 27/3/2026 của Sở GDĐT Lâm Đồng và Quyết định 423/QĐ-BVHTTDL)[cite: 2].
+                    </div>
+
+                    <p><strong>I. MỤC ĐÍCH, YÊU CẦU:</strong></p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Nâng cao nhận thức, trách nhiệm của CB-GV-NV và học sinh khi tham gia môi trường số, xây dựng môi trường mạng lành mạnh, an toàn, văn minh[cite: 2].</li>
+                        <li>Trang bị kỹ năng số, kỹ năng nhận diện thông tin xấu độc, tin giả và bảo vệ dữ liệu cá nhân[cite: 2].</li>
+                        <li>Đảm bảo 100% CB-GV-NV và học sinh được tuyên truyền, quán triệt, thực hiện nghiêm túc[cite: 2].</li>
                     </ul>
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800" class="w-full h-auto rounded-2xl my-2.5 max-h-80 object-cover shadow-sm" alt="Văn hóa ứng xử trên môi trường số">
+
+                    <p><strong>II. NỘI DUNG THỰC HIỆN TRỌNG TÂM:</strong></p>
+                    <ol class="list-decimal pl-5 space-y-1.5">
+                        <li><strong>Tổ chức quán triệt & Tuyên truyền:</strong> Phổ biến qua sinh hoạt dưới cờ, hoạt động Đoàn - Đội, lồng ghép trong tiết học; đăng tải trên Website, Fanpage, Zalo nhà trường[cite: 2]. Khuyến khích ứng dụng MXH (Facebook, Zalo, YouTube, TikTok) để lan tỏa gương người tốt việc tốt[cite: 2].</li>
+                        <li><strong>Thực hiện chuẩn mực ứng xử số:</strong>
+                            <ul class="list-disc pl-5 mt-1">
+                                <li>Không đăng tải, chia sẻ thông tin sai sự thật, chưa kiểm chứng; không sử dụng ngôn ngữ phản cảm[cite: 2].</li>
+                                <li>Lồng ghép dạy học trong môn Giáo dục công dân, Hoạt động trải nghiệm, Tin học[cite: 2].</li>
+                                <li>Phát động phong trào <em>"Gìn giữ sự trong sáng của Tiếng Việt trên môi trường mạng"</em> và <em>"Giữ gìn bản sắc văn hóa ứng xử của dân tộc trên môi trường mạng"</em>[cite: 2].</li>
+                            </ul>
+                        </li>
+                        <li><strong>Tăng cường kiểm soát & Tiếp nhận phản ánh:</strong> Thiết lập kênh tiếp nhận phản ánh, kịp thời gỡ bỏ thông tin không phù hợp và xử lý nghiêm các vi phạm[cite: 2].</li>
+                    </ol>
+
+                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-200">
+                        <strong>⚠️ TRÁCH NHIỆM HỌC SINH:</strong> Nghiêm túc thực hiện Bộ Quy tắc; báo cáo ngay cho thầy cô khi phát hiện nội dung xấu hoặc bị xâm hại trên mạng. Thực hiện ký cam kết và chấp hành quy định xếp loại rèn luyện[cite: 2].
+                    </div>
+
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800" class="w-full h-auto rounded-2xl my-2 max-h-80 object-cover shadow-sm" alt="Văn hóa ứng xử số">
                 </div>
             </div>
 
-            <!-- BÀI MỚI 2: ĐẨY LÙI BẠO LỰC HỌC ĐƯỜNG (KH 06/KH-THCSLHP) -->
+            <!-- BÀI VIẾT MỚI NHẤT 2: CẬP NHẬT ĐẦY ĐỦ NGUYÊN VĂN KH 06/KH-THCSLHP -->
             <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-green-600" data-category="baoluc">
                 <div class="p-4 flex justify-between items-start gap-3">
                     <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-green-100 text-green-700 px-2.5 py-0.5 rounded-full">Bạo lực học đường</span>
-                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">Kế hoạch 06/KH-THCSLHP: Triển khai giải pháp cấp bách Ngăn chặn, đẩy lùi Bạo lực học đường</h4>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] font-black bg-red-600 text-white px-2 py-0.5 rounded-md uppercase animate-pulse">[BÀI VIẾT MỚI NHẤT]</span>
+                            <span class="text-xs font-bold bg-green-100 text-green-700 px-2.5 py-0.5 rounded-full">Bạo lực học đường</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1.5">Kế hoạch 06/KH-THCSLHP: Triển khai thực hiện ngăn chặn, đẩy lùi bạo lực học đường năm 2026</h4>
                         <p class="text-xs text-slate-500 mt-1 line-clamp-1">Thực hiện Kế hoạch 106/KH-SGDĐT của Sở GDĐT Lâm Đồng và Chỉ thị 03/CT-TTg của Thủ tướng Chính phủ...</p>
                     </div>
                     <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
                         <i class="fas fa-trash-alt"></i>
                     </button>
                 </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    Trường THCS Lê Hồng Phong ban hành Kế hoạch số 06/KH-THCSLHP ngày 06/4/2026 quyết tâm xây dựng môi trường giáo dục An toàn – Lành mạnh – Thân thiện – Không bạo lực[cite: 3].
-                    <br><br>
-                    <strong>🛡️ Các giải pháp trọng tâm:</strong>
-                    <ul class="list-disc pl-5 mt-1 space-y-1">
-                        <li>Thực hiện nguyên tắc <strong>"06 rõ"</strong>: <em>Rõ người, rõ việc, rõ thẩm quyền, rõ trách nhiệm, rõ thời gian, rõ kết quả</em>[cite: 3].</li>
-                        <li>Duy trì hiệu quả Tổ tư vấn tâm lý học đường, tiếp nhận phản ánh ẩn danh và xử lý triệt để mâu thuẫn từ sớm, từ xa[cite: 3].</li>
-                        <li>Tăng cường phối hợp giữa Nhà trường - Gia đình - Công an xã Đức Trọng và Ban thôn để quản lý học sinh cả trong và ngoài giờ học[cite: 3].</li>
-                        <li>Tăng cường giáo dục kỹ năng kiềm chế cảm xúc, kỹ năng ứng xử văn minh và tinh thần đoàn kết giúp đỡ bạn bè[cite: 3].</li>
+                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed space-y-3">
+                    <div class="bg-green-50 p-3 rounded-xl border border-green-200 font-medium text-green-900">
+                        📌 <strong>CĂN CỨ VĂN BẢN:</strong> Kế hoạch số 06/KH-THCSLHP ban hành ngày 06/4/2026 của Trường THCS Lê Hồng Phong (Cụ thể hóa Kế hoạch 106/KH-SGDĐT ngày 03/4/2026 của Sở GDĐT Lâm Đồng và Chỉ thị 03/CT-TTg của Thủ tướng Chính phủ)[cite: 3].
+                    </div>
+
+                    <p><strong>I. MỤC ĐÍCH & NGHIÊN TẮC THỰC HIỆN:</strong></p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Tăng cường hiệu lực phòng ngừa, phát hiện, hỗ trợ, can thiệp và xử lý kịp thời hành vi bạo lực học đường[cite: 3].</li>
+                        <li>Xây dựng môi trường giáo dục An toàn – Lành mạnh – Thân thiện – Không bạo lực[cite: 3].</li>
+                        <li>Phân công nhiệm vụ theo nguyên tắc <strong>"06 rõ"</strong>: <em>Rõ người, rõ việc, rõ thẩm quyền, rõ trách nhiệm, rõ thời gian, rõ kết quả</em>[cite: 3].</li>
                     </ul>
-                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800" class="w-full h-auto rounded-2xl my-2.5 max-h-80 object-cover shadow-sm" alt="Xây dựng trường học an toàn không bạo lực">
+
+                    <p><strong>II. NHIỆM VỤ VÀ GIẢI PHÁP TRỌNG TÂM:</strong></p>
+                    <ol class="list-decimal pl-5 space-y-1.5">
+                        <li><strong>Tuyên truyền & Giáo dục kỹ năng:</strong> Tăng cường giáo dục đạo đức, kỹ năng kiểm soát cảm xúc, giải quyết mâu thuẫn qua sinh hoạt dưới cờ, ngoại khóa, hoạt động Đội[cite: 3]. Nhân rộng mô hình <em>"Tự quản giữ gìn an ninh trật tự trường học"</em>[cite: 3].</li>
+                        <li><strong>Phòng ngừa từ sớm, từ xa:</strong> Rà soát bổ sung nội quy; tăng cường quản lý học sinh trong giờ học, giờ ra chơi, khu vực cổng trường[cite: 3]. Tổ chức văn nghệ, thể thao để giải tỏa căng thẳng[cite: 3].</li>
+                        <li><strong>Tư vấn tâm lý & Hỗ trợ nguy cơ:</strong> Duy trì hiệu quả Tổ tư vấn tâm lý học đường, lập danh sách học sinh có nguy cơ để theo dõi, hỗ trợ can thiệp kịp thời[cite: 3].</li>
+                        <li><strong>Phối hợp liên ngành chặt chẽ:</strong> Phối hợp Công an xã Đức Trọng đảm bảo an ninh; phối hợp Ban thôn quản lý học sinh ngoài giờ và phối hợp Ban đại diện Cha mẹ học sinh[cite: 3].</li>
+                        <li><strong>Chuyển đổi số & Truyền thông số:</strong> Ứng dụng CNTT, cổng thông tin, MXH nhà trường và Hộp thư ẩn danh để nắm bắt tình hình, phát hiện sớm nguy cơ bạo lực[cite: 3].</li>
+                    </ol>
+
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800" class="w-full h-auto rounded-2xl my-2 max-h-80 object-cover shadow-sm" alt="Trường học hạnh phúc an toàn">
                 </div>
             </div>
 
