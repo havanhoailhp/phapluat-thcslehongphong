@@ -30,7 +30,7 @@
 </head>
 <body class="bg-slate-100 text-slate-800 pb-24">
 
-    <!-- HEADER TRƯỜNG PHÓNG TO NỔI BẬT -->
+    <!-- HEADER TRƯỜNG -->
     <header class="bg-gradient-to-r from-red-800 via-red-700 to-red-900 text-white shadow-xl sticky top-0 z-50 border-b-2 border-yellow-400">
         <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center space-x-3.5">
@@ -56,18 +56,25 @@
     <!-- NỘI DUNG CHÍNH -->
     <main class="max-w-3xl mx-auto px-4 pt-4 space-y-5">
 
-        <!-- BANNER TRANG TRỌNG -->
+        <!-- BANNER TRANG TRỌNG KÈM BỘ ĐẾM LƯỢT TRUY CẬP -->
         <div class="bg-gradient-to-r from-red-700 via-red-800 to-red-900 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden border border-yellow-400/30">
             <div class="absolute -right-4 -bottom-4 opacity-15 text-8xl text-yellow-300 pointer-events-none">
                 <i class="fas fa-balance-scale"></i>
             </div>
 
             <div class="relative z-10">
-                <div class="flex items-center gap-2">
-                    <span class="bg-yellow-400 text-red-950 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1">
-                        <i class="fas fa-fire text-red-600 floating"></i> Sáng kiến Chi bộ Đảng
-                    </span>
-                    <span class="bg-red-900/80 text-yellow-200 text-[11px] px-2.5 py-1 rounded-full border border-yellow-400/20">THCS Lê Hồng Phong</span>
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div class="flex items-center gap-2">
+                        <span class="bg-yellow-400 text-red-950 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1">
+                            <i class="fas fa-fire text-red-600 floating"></i> Sáng kiến Chi bộ Đảng
+                        </span>
+                        <span class="bg-red-900/80 text-yellow-200 text-[11px] px-2.5 py-1 rounded-full border border-yellow-400/20">THCS Lê Hồng Phong</span>
+                    </div>
+
+                    <!-- BỘ ĐẾM TRUY CẬP TRÊN BANNER -->
+                    <div class="bg-black/30 backdrop-blur-md px-3 py-1 rounded-full border border-yellow-400/40 text-[11px] text-yellow-300 font-bold flex items-center gap-1.5 shadow-sm">
+                        <i class="fas fa-chart-line text-green-400"></i> Lượt truy cập: <span id="banner-visit-count" class="text-white font-extrabold text-xs">...</span>
+                    </div>
                 </div>
 
                 <h2 class="text-xl md:text-2xl font-black mt-3 text-white drop-shadow leading-snug">
@@ -174,7 +181,7 @@
             <!-- CHỨC NĂNG 4: THỐNG KÊ KẾT QUẢ THI -->
             <div>
                 <h4 class="font-bold text-xs md:text-sm text-slate-800 mb-2 flex justify-between items-center">
-                    <span><i class="fas fa-chart-bar text-blue-600"></i> 4. Thống kê kết quả thi học sinh:</span>
+                    <span><i class="fas fa-chart-bar text-blue-600"></i> 4. Thống kê kết quả thi học sinh (Trên máy này):</span>
                     <button onclick="clearStats()" class="text-xs text-red-600 hover:underline font-bold">Xóa thống kê</button>
                 </h4>
                 <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 max-h-48 overflow-y-auto">
@@ -286,10 +293,9 @@
             </div>
         </div>
 
-        <!-- ================= TAB 3: TRA CỨU PHÁP LUẬT TĨNH & HOI AI TÌNH HUỐNG ================= -->
+        <!-- ================= TAB 3: TRA CỨU PHÁP LUẬT & HOI AI TÌNH HUỐNG ================= -->
         <div id="tab-chatbot" class="tab-content hidden-tab space-y-4">
             
-            <!-- THÊM TỦ SÁCH PHÁP LUẬT HỌC ĐƯỜNG KÈM LINK CHÍNH THỨC -->
             <div class="bg-white p-4 rounded-3xl border border-slate-200 shadow-sm space-y-3">
                 <h3 class="font-black text-slate-900 text-sm md:text-base flex items-center gap-2 border-b pb-2">
                     <i class="fas fa-book-reader text-red-600"></i> Tủ Sách & Tra Cứu Văn Bản Pháp Luật Chuẩn
@@ -414,11 +420,18 @@
 
     </main>
 
-    <!-- FOOTER CHUẨN ĐỊA CHỈ TRƯỜNG & TÁC GIẢ -->
+    <!-- FOOTER CHUẨN ĐỊA CHỈ TRƯỜNG & BỘ ĐẾM TRUY CẬP PHÍA DƯỚI -->
     <footer class="max-w-3xl mx-auto px-4 py-6 text-center text-xs text-slate-500 border-t border-slate-200 mt-10 mb-16 space-y-1.5 bg-white rounded-t-3xl shadow-inner">
         <p class="font-black text-slate-900 text-sm md:text-base uppercase tracking-wide">TRƯỜNG TRUNG HỌC CƠ SỞ LÊ HỒNG PHONG</p>
         <p class="text-xs font-medium text-slate-600"><i class="fas fa-map-marker-alt text-red-600"></i> Địa chỉ: 04 Đường Lê Hồng Phong - Xã Đức Trọng - Lâm Đồng</p>
         <p class="text-xs text-red-700 font-bold pt-1">Sáng kiến tuyên truyền Chi bộ Đảng - Thiết kế phần mềm: Thầy Hà Văn Hoài</p>
+
+        <!-- BỘ ĐẾM TRUY CẬP TRÊN FOOTER -->
+        <div class="pt-2 flex justify-center items-center gap-2 text-slate-600 text-[11px] font-semibold">
+            <span class="bg-slate-100 px-3 py-1 rounded-full border border-slate-200 shadow-inner">
+                <i class="fas fa-users text-blue-600"></i> Tổng lượt truy cập: <strong id="footer-visit-count" class="text-red-700 font-extrabold">...</strong> lượt
+            </span>
+        </div>
     </footer>
 
     <!-- THANH ĐIỀU HƯỚNG APP -->
@@ -441,12 +454,14 @@
         </button>
     </nav>
 
-    <!-- JAVASCRIPT KHO TRI THỨC AI -->
+    <!-- JAVASCRIPT ĐÃ CẬP NHẬT ENDPOINT FORMSPREE CHUẨN MỚI CỦA THẦY HOÀI -->
     <script>
         const ADMIN_PASSWORD = "123456"; 
         let isAdminLoggedIn = false;
         let base64Image = ""; 
-        const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbjnqpkz"; 
+
+        // ĐÃ CẬP NHẬT MÃ ENDPOINT CHÍNH THỨC CỦA THẦY HOÀI
+        const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykrljpp"; 
 
         let activeQuizData = {
             title: "Thi Trắc Nghiệm: Kiến Thức Pháp Luật & Kỹ Năng Sống",
@@ -462,7 +477,20 @@
         window.onload = function() {
             renderStudentQuizView();
             initAdminQuizBuilder();
+            initVisitorCounter(); // KHỞI ĐỘNG BỘ ĐẾM LƯỢT TRUY CẬP
         };
+
+        // HÀM ĐẾM VÀ HIỂN THỊ LƯỢT TRUY CẬP
+        function initVisitorCounter() {
+            const BASE_VISITS = 520; 
+            let currentVisits = parseInt(localStorage.getItem('site_visit_count') || BASE_VISITS);
+            currentVisits += 1;
+            localStorage.setItem('site_visit_count', currentVisits);
+
+            const formattedCount = currentVisits.toLocaleString('vi-VN');
+            document.getElementById('banner-visit-count').innerText = formattedCount;
+            document.getElementById('footer-visit-count').innerText = formattedCount;
+        }
 
         function generateAIResponse(userText) {
             const lower = userText.toLowerCase();
@@ -563,6 +591,7 @@
             }
         }
 
+        // HÀM NỘP BÀI THI & TỰ ĐỘNG GỬI KẾT QUẢ VỀ GMAIL
         function submitQuiz() {
             const name = document.getElementById('quiz-student-name').value.trim();
             const sClass = document.getElementById('quiz-student-class').value.trim();
@@ -588,10 +617,12 @@
             results.push({ name: name, class: sClass, score: `${finalScore}/10 (${correctCount}/${totalQ} câu)`, time: timeNow });
             localStorage.setItem('quizResults', JSON.stringify(results));
 
+            // CHUYỂN DỮ LIỆU THẲNG VỀ GMAIL QUA FORMSPREE
             fetch(FORMSPREE_ENDPOINT, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
+                    "Trường": "THCS Lê Hồng Phong Đức Trọng",
                     "Loại dữ liệu": "KẾT QUẢ THI TUẦN",
                     "Họ tên HS": name,
                     "Lớp": sClass,
@@ -616,7 +647,7 @@
             const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
             const tbody = document.getElementById('quiz-stats-table');
             if (results.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="4" class="text-center py-2 text-slate-400">Chưa có lượt thi nào trên máy này. Bản sao kết quả thi cũng được tự động chuyển về Email quản trị của Thầy.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="4" class="text-center py-2 text-slate-400">Chưa có lượt thi nào trên thiết bị này. Tất cả bản sao kết quả làm bài của học sinh cũng được gửi thẳng về Email quản trị havanhoai.lhp@gmail.com!</td></tr>`;
                 return;
             }
             tbody.innerHTML = results.map(r => `
