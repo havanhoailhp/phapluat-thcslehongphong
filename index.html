@@ -200,7 +200,7 @@
             </div>
         </div>
 
-        <!-- ================= TAB 1: TRANG CHỦ BÀI VIẾT (ĐÃ THAY CLIP CHUẨN MỚI) ================= -->
+        <!-- ================= TAB 1: TRANG CHỦ BÀI VIẾT (ĐÃ BỔ SUNG 2 BÀI VĂN BẢN MỚI KH 05 & KH 06) ================= -->
         <div id="tab-posts" class="tab-content space-y-4">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-center text-xs">
                 <button onclick="filterCategory('all', this)" class="btn-filter active bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm font-bold flex items-center justify-center gap-1.5">
@@ -228,12 +228,64 @@
 
             <div id="dynamic-posts"></div>
 
-            <!-- BÌNH DÂN HỌC VỤ SỐ - BÀI 1 ĐÃ ĐƯỢC ĐỔI CLIP CHUẨN YOUTUBE FXI-wfQcbds -->
+            <!-- BÀI MỚI 1: BỘ QUY TẮC ỨNG XỬ VĂN HÓA MẠNG (KH 05/KH-THCSLHP) -->
+            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-purple-600" data-category="binhdan">
+                <div class="p-4 flex justify-between items-start gap-3">
+                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
+                        <span class="text-xs font-bold bg-purple-100 text-purple-800 px-2.5 py-0.5 rounded-full">Bình dân học vụ số & Văn hóa số</span>
+                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">Kế hoạch 05/KH-THCSLHP: Tuyên truyền Bộ Quy tắc ứng xử văn hóa trên môi trường số năm học 2025 - 2026</h4>
+                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Thực hiện Công văn 1274/SGDĐT-CTrTT&CTHSSV của Sở GDĐT Lâm Đồng...</p>
+                    </div>
+                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
+                    Trường THCS Lê Hồng Phong ban hành Kế hoạch số 05/KH-THCSLHP ngày 31/3/2026 về việc triển khai tuyên truyền Bộ Quy tắc ứng xử văn hóa trên môi trường số[cite: 2].
+                    <br><br>
+                    <strong>🎯 Trọng tâm thực hiện cho học sinh và giáo viên:</strong>
+                    <ul class="list-disc pl-5 mt-1 space-y-1">
+                        <li>100% cán bộ, giáo viên và học sinh toàn trường được phổ biến, quán triệt nắm vững chuẩn mực ứng xử số[cite: 2].</li>
+                        <li>Trang bị kỹ năng nhận diện thông tin xấu độc, tin giả và bảo vệ dữ liệu cá nhân an toàn[cite: 2].</li>
+                        <li>Nói KHÔNG với ngôn ngữ phản cảm, không chia sẻ tin chưa kiểm chứng[cite: 2].</li>
+                        <li>Phát động phong trào <em>"Gìn giữ sự trong sáng của Tiếng Việt trên môi trường mạng"</em> và <em>"Giữ gìn bản sắc văn hóa ứng xử của dân tộc trên môi trường mạng"</em>[cite: 2].</li>
+                    </ul>
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800" class="w-full h-auto rounded-2xl my-2.5 max-h-80 object-cover shadow-sm" alt="Văn hóa ứng xử trên môi trường số">
+                </div>
+            </div>
+
+            <!-- BÀI MỚI 2: ĐẨY LÙI BẠO LỰC HỌC ĐƯỜNG (KH 06/KH-THCSLHP) -->
+            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-green-600" data-category="baoluc">
+                <div class="p-4 flex justify-between items-start gap-3">
+                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
+                        <span class="text-xs font-bold bg-green-100 text-green-700 px-2.5 py-0.5 rounded-full">Bạo lực học đường</span>
+                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">Kế hoạch 06/KH-THCSLHP: Triển khai giải pháp cấp bách Ngăn chặn, đẩy lùi Bạo lực học đường</h4>
+                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Thực hiện Kế hoạch 106/KH-SGDĐT của Sở GDĐT Lâm Đồng và Chỉ thị 03/CT-TTg của Thủ tướng Chính phủ...</p>
+                    </div>
+                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
+                    Trường THCS Lê Hồng Phong ban hành Kế hoạch số 06/KH-THCSLHP ngày 06/4/2026 quyết tâm xây dựng môi trường giáo dục An toàn – Lành mạnh – Thân thiện – Không bạo lực[cite: 3].
+                    <br><br>
+                    <strong>🛡️ Các giải pháp trọng tâm:</strong>
+                    <ul class="list-disc pl-5 mt-1 space-y-1">
+                        <li>Thực hiện nguyên tắc <strong>"06 rõ"</strong>: <em>Rõ người, rõ việc, rõ thẩm quyền, rõ trách nhiệm, rõ thời gian, rõ kết quả</em>[cite: 3].</li>
+                        <li>Duy trì hiệu quả Tổ tư vấn tâm lý học đường, tiếp nhận phản ánh ẩn danh và xử lý triệt để mâu thuẫn từ sớm, từ xa[cite: 3].</li>
+                        <li>Tăng cường phối hợp giữa Nhà trường - Gia đình - Công an xã Đức Trọng và Ban thôn để quản lý học sinh cả trong và ngoài giờ học[cite: 3].</li>
+                        <li>Tăng cường giáo dục kỹ năng kiềm chế cảm xúc, kỹ năng ứng xử văn minh và tinh thần đoàn kết giúp đỡ bạn bè[cite: 3].</li>
+                    </ul>
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800" class="w-full h-auto rounded-2xl my-2.5 max-h-80 object-cover shadow-sm" alt="Xây dựng trường học an toàn không bạo lực">
+                </div>
+            </div>
+
+            <!-- BÌNH DÂN HỌC VỤ SỐ - BÀI HƯỞNG ỨNG CÓ CLIP FXI-wfQcbds -->
             <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-purple-600" data-category="binhdan">
                 <div class="p-4 flex justify-between items-start gap-3">
                     <div onclick="togglePost(this)" class="cursor-pointer flex-1">
                         <span class="text-xs font-bold bg-purple-100 text-purple-800 px-2.5 py-0.5 rounded-full">Bình dân học vụ số</span>
-                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">1. Hưởng ứng Phong trào "Bình dân học vụ số" - Học sinh THCS Lê Hồng Phong tiên phong chuyển đổi số</h4>
+                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">Hưởng ứng Phong trào "Bình dân học vụ số" - Học sinh THCS Lê Hồng Phong tiên phong chuyển đổi số</h4>
                         <p class="text-xs text-slate-500 mt-1 line-clamp-1">Thực hiện Kế hoạch số 13-KH/TU của BTV Tỉnh ủy Lâm Đồng và Kế hoạch 67-KH/BTGDVTU...</p>
                     </div>
                     <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
@@ -243,52 +295,18 @@
                 <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
                     Thực hiện Kế hoạch số 13-KH/TU của Ban Thường vụ Tỉnh ủy Lâm Đồng về Phong trào "Bình dân học vụ số" và Kế hoạch 67-KH/BTGDVTU[cite: 1], Chi bộ Đảng Trường THCS Lê Hồng Phong phát động phong trào học tập kỹ năng số toàn trường[cite: 1]. Với phương châm <strong>"Mỗi học sinh là một hạt nhân số"</strong>, học sinh không chỉ tự nâng cao trình độ công nghệ mà còn tích cực lan tỏa văn hóa mạng an toàn tới gia đình và cộng đồng.
                     
-                    <!-- CLIP MỚI DO THẦY HOÀI CUNG CẤP: FXI-wfQcbds -->
                     <div class="relative w-full overflow-hidden rounded-2xl aspect-video my-2.5 bg-black shadow-md">
                         <iframe class="w-full h-full" src="https://www.youtube.com/embed/FXI-wfQcbds" title="Video Tuyên truyền Bình dân học vụ số" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
 
-            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-purple-600" data-category="binhdan">
-                <div class="p-4 flex justify-between items-start gap-3">
-                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-purple-100 text-purple-800 px-2.5 py-0.5 rounded-full">Bình dân học vụ số</span>
-                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">2. Mô hình "Mỗi học sinh là một Tuyên truyền viên số" tại Gia đình & Dân cư</h4>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Hướng dẫn phụ huynh sử dụng smartphone an toàn, nhận diện lừa đảo trực tuyến và cảnh giác tin giả...</p>
-                    </div>
-                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    Học sinh THCS Lê Hồng Phong phát huy vai trò cầu nối công nghệ: Hướng dẫn cha mẹ, ông bà cách bảo mật mật khẩu, cảnh giác trước các chiêu trò lừa đảo qua cuộc gọi/tin nhắn rác, không chia sẻ tin giả trên Zalo/Facebook.
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800" class="w-full h-auto rounded-2xl my-2.5 max-h-80 object-cover shadow-sm" alt="Chuyển đổi số cộng đồng">
-                </div>
-            </div>
-
-            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-purple-600" data-category="binhdan">
-                <div class="p-4 flex justify-between items-start gap-3">
-                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-purple-100 text-purple-800 px-2.5 py-0.5 rounded-full">Bình dân học vụ số</span>
-                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">3. Phổ cập Kỹ năng Dịch vụ công Trực tuyến & Thanh toán Không dùng Tiền mặt</h4>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Tuyên truyền ứng dụng VNeID, nộp học phí trực tuyến và văn minh giao dịch số...</p>
-                    </div>
-                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    Phổ cập đến toàn thể giáo viên, phụ huynh và học sinh thói quen thanh toán không dùng tiền mặt khi nộp học phí, mua sắm nhu yếu phẩm và sử dụng tài khoản định danh điện tử VNeID khi làm thủ tục hành chính.
-                </div>
-            </div>
-
-            <!-- GIỮ NGUYÊN MỤC THÔNG BÁO -->
+            <!-- MỤC THÔNG BÁO -->
             <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-orange-500" data-category="thongbao">
                 <div class="p-4 flex justify-between items-start gap-3">
                     <div onclick="togglePost(this)" class="cursor-pointer flex-1">
                         <span class="text-xs font-bold bg-orange-100 text-orange-700 px-2.5 py-0.5 rounded-full">Thông báo Khẩn</span>
-                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">1. Phát động Cuộc thi "Sáng kiến Chuyển đổi số trong Công tác Tuyên giáo và Dân vận" năm 2026</h4>
+                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">Phát động Cuộc thi "Sáng kiến Chuyển đổi số trong Công tác Tuyên giáo và Dân vận" năm 2026</h4>
                         <p class="text-xs text-slate-500 mt-1 line-clamp-1">Kế hoạch số 67-KH/BTGDVTU của Ban Tuyên giáo và Dân vận Tỉnh ủy Lâm Đồng...</p>
                     </div>
                     <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
@@ -304,7 +322,7 @@
                 <div class="p-4 flex justify-between items-start gap-3">
                     <div onclick="togglePost(this)" class="cursor-pointer flex-1">
                         <span class="text-xs font-bold bg-orange-100 text-orange-700 px-2.5 py-0.5 rounded-full">Thông báo</span>
-                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">2. Lịch Thi Trắc nghiệm Tìm hiểu Pháp luật Học đường hàng tuần năm học 2026</h4>
+                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">Lịch Thi Trắc nghiệm Tìm hiểu Pháp luật Học đường hàng tuần năm học 2026</h4>
                         <p class="text-xs text-slate-500 mt-1 line-clamp-1">Thời gian mở cổng thi từ thứ Hai đến Chủ Nhật hàng tuần cho tất cả học sinh các khối 6, 7, 8, 9...</p>
                     </div>
                     <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
@@ -317,28 +335,12 @@
                 </div>
             </div>
 
-            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-orange-500" data-category="thongbao">
-                <div class="p-4 flex justify-between items-start gap-3">
-                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-orange-100 text-orange-700 px-2.5 py-0.5 rounded-full">Thông báo</span>
-                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">3. Hướng dẫn sử dụng Trợ lý AI và Tủ sách Pháp luật trực tuyến</h4>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Các bước để học sinh tra cứu văn bản luật và hỏi đáp tình huống thực tế cùng AI...</p>
-                    </div>
-                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    Học sinh có thể truy cập tab <strong>"TRA LUẬT AI"</strong> để đặt câu hỏi về An toàn giao thông, An ninh mạng, Bạo lực học đường. Trợ lý AI sẽ tư vấn 24/7 và đưa ra lời khuyên chuẩn xác nhất cho các em.
-                </div>
-            </div>
-
-            <!-- GIỮ NGUYÊN MỤC VĂN BẢN CHI BỘ ĐẢNG -->
+            <!-- MỤC VĂN BẢN CHI BỘ ĐẢNG -->
             <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-red-600" data-category="chibo">
                 <div class="p-4 flex justify-between items-start gap-3">
                     <div onclick="togglePost(this)" class="cursor-pointer flex-1">
                         <span class="text-xs font-bold bg-red-100 text-red-700 px-2.5 py-0.5 rounded-full">Chi bộ Đảng THCS Lê Hồng Phong</span>
-                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">1. Nghị quyết Chi bộ: Đẩy mạnh Chuyển đổi số trong Tuyên truyền Pháp luật Học đường</h4>
+                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">Nghị quyết Chi bộ: Đẩy mạnh Chuyển đổi số trong Tuyên truyền Pháp luật Học đường</h4>
                         <p class="text-xs text-slate-500 mt-1 line-clamp-1">Nghị quyết chuyên đề năm 2026 về ứng dụng công nghệ thông tin vào công tác Tuyên giáo...</p>
                     </div>
                     <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
@@ -351,94 +353,12 @@
                 </div>
             </div>
 
-            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-red-600" data-category="chibo">
-                <div class="p-4 flex justify-between items-start gap-3">
-                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-red-100 text-red-700 px-2.5 py-0.5 rounded-full">Chi bộ Đảng THCS Lê Hồng Phong</span>
-                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">2. Kế hoạch Chỉ đạo triển khai Phong trào "Bình dân học vụ số" tại Nhà trường</h4>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Thực hiện Kế hoạch số 13-KH/TU của BTV Tỉnh ủy Lâm Đồng về nâng cao kỹ năng số cho cộng đồng...</p>
-                    </div>
-                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    Kế hoạch tập trung phát huy vai trò chủ thể của giáo viên và học sinh trong học tập, chia sẻ kỹ năng sử dụng công nghệ an toàn, xây dựng không gian mạng học đường lành mạnh.
-                </div>
-            </div>
-
-            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-red-600" data-category="chibo">
-                <div class="p-4 flex justify-between items-start gap-3">
-                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-red-100 text-red-700 px-2.5 py-0.5 rounded-full">Chi bộ Đảng THCS Lê Hồng Phong</span>
-                        <h4 class="font-bold text-slate-900 text-sm md:text-base mt-1">3. Tăng cường lãnh đạo công tác Dân vận Chính quyền và Tư vấn Hỗ trợ Học sinh</h4>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Xây dựng kênh tiếp nhận ý kiến ẩn danh và giải quyết tâm tư nguyện vọng của học sinh...</p>
-                    </div>
-                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    Phát huy mô hình Hộp thư tư vấn "Điều em muốn nói", lắng nghe, đồng hành và bảo vệ quyền lợi chính đáng của học sinh THCS trong mọi tình huống.
-                </div>
-            </div>
-
-            <!-- GIỮ NGUYÊN MỤC BẠO LỰC HỌC ĐƯỜNG -->
-            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-green-600" data-category="baoluc">
-                <div class="p-4 flex justify-between items-start gap-3">
-                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-green-100 text-green-700 px-2.5 py-0.5 rounded-full">Bạo lực học đường</span>
-                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">1. Nhận diện Bạo lực học đường tinh thần & Cách ứng phó an toàn</h4>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Hành vi cô lập, tẩy chay bạn bè và đường dây nóng hỗ trợ khẩn cấp 111...</p>
-                    </div>
-                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    Bạo lực học đường không chỉ là đánh nhau, mà còn bao gồm hành vi cô lập, tẩy chay, chửi mắng bạn bè. Học sinh tuyệt đối không im lặng, hãy dũng cảm báo cho Thầy Cô hoặc gọi Tổng đài Bảo vệ Trẻ em <strong>111</strong>.
-                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800" class="w-full h-auto rounded-2xl my-2.5 max-h-80 object-cover shadow-sm" alt="Phòng chống bạo lực học đường">
-                </div>
-            </div>
-
-            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-green-600" data-category="baoluc">
-                <div class="p-4 flex justify-between items-start gap-3">
-                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-green-100 text-green-700 px-2.5 py-0.5 rounded-full">Bạo lực học đường</span>
-                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">2. Kỹ năng kiềm chế cảm xúc và giải quyết mâu thuẫn bạn bè tuổi mới lớn</h4>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Các bước lắng nghe, thương lượng và tìm sự hỗ trợ của Giáo viên chủ nhiệm...</p>
-                    </div>
-                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    Khi xảy ra bất đồng ý kiến, học sinh cần giữ bình tĩnh, tránh dùng bạo lực ngôn từ hay nắm đấm. Hãy tìm đến Thầy Cô Cố vấn Tâm lý để được hướng dẫn giải quyết ôn hòa.
-                </div>
-            </div>
-
-            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-green-600" data-category="baoluc">
-                <div class="p-4 flex justify-between items-start gap-3">
-                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-green-100 text-green-700 px-2.5 py-0.5 rounded-full">Bạo lực học đường</span>
-                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">3. Cảnh báo Tác hại nghiêm trọng của Thuốc lá điện tử (Pod/Vape) trong trường học</h4>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Thuốc lá điện tử phá hủy não bộ học sinh và nguy cơ lôi kéo bạo lực nhóm...</p>
-                    </div>
-                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    Thuốc lá điện tử chứa chất gây nghiện cực độc Nicotine và nguy cơ pha trộn chất cấm. Nhà trường nghiêm cấm tuyệt đối học sinh tàng trữ, mua bán hoặc sử dụng Pod/Vape.
-                </div>
-            </div>
-
-            <!-- GIỮ NGUYÊN MỤC AN NINH MẠNG -->
+            <!-- MỤC AN NINH MẠNG -->
             <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-blue-600" data-category="anninhmang">
                 <div class="p-4 flex justify-between items-start gap-3">
                     <div onclick="togglePost(this)" class="cursor-pointer flex-1">
                         <span class="text-xs font-bold bg-blue-100 text-blue-700 px-2.5 py-0.5 rounded-full">An ninh mạng</span>
-                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">1. Bắt nạt trực tuyến (Cyberbullying) & Quy tắc ứng xử trên Mạng xã hội</h4>
+                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">Bắt nạt trực tuyến (Cyberbullying) & Quy tắc ứng xử trên Mạng xã hội</h4>
                         <p class="text-xs text-slate-500 mt-1 line-clamp-1">Hành vi lập nhóm chát nói xấu, ghép ảnh giễu cợt vi phạm nghiêm trọng Luật An ninh mạng...</p>
                     </div>
                     <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
@@ -451,44 +371,12 @@
                 </div>
             </div>
 
-            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-blue-600" data-category="anninhmang">
-                <div class="p-4 flex justify-between items-start gap-3">
-                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-blue-100 text-blue-700 px-2.5 py-0.5 rounded-full">An ninh mạng</span>
-                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">2. Nhận diện 5 Chiêu trò Lừa đảo Mạng nhắm vào Học sinh THCS</h4>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Dụ dỗ tuyển cộng tác viên online, nhận quà game, xin mã OTP tài khoản của cha mẹ...</p>
-                    </div>
-                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    Kẻ gian thường dụ dỗ học sinh làm "nhiệm vụ xem video nhận tiền" hoặc yêu cầu đọc mã OTP điện thoại của phụ huynh. Học sinh tuyệt đối không nghe theo và không chuyển tiền.
-                </div>
-            </div>
-
-            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-blue-600" data-category="anninhmang">
-                <div class="p-4 flex justify-between items-start gap-3">
-                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-blue-100 text-blue-700 px-2.5 py-0.5 rounded-full">An ninh mạng</span>
-                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">3. Kỹ năng Bảo mật Mật khẩu cá nhân và Phòng tránh Mất tài khoản</h4>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Hướng dẫn đặt mật khẩu mạnh và cài đặt bảo mật 2 lớp cho tài khoản Zalo, Facebook...</p>
-                    </div>
-                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    Không chia sẻ mật khẩu cá nhân cho bạn bè, không đăng nhập tài khoản trên các máy tính công cộng mà quên đăng xuất để tránh bị mạo danh lừa đảo.
-                </div>
-            </div>
-
-            <!-- GIỮ NGUYÊN MỤC AN TOÀN GIAO THÔNG -->
+            <!-- MỤC AN TOÀN GIAO THÔNG -->
             <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-amber-500" data-category="giaothong">
                 <div class="p-4 flex justify-between items-start gap-3">
                     <div onclick="togglePost(this)" class="cursor-pointer flex-1">
                         <span class="text-xs font-bold bg-amber-100 text-amber-700 px-2.5 py-0.5 rounded-full">An toàn giao thông</span>
-                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">1. Quy định Độ tuổi điều khiển Xe máy điện & Xe dưới 50cc theo Luật</h4>
+                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">Quy định Độ tuổi điều khiển Xe máy điện & Xe dưới 50cc theo Luật</h4>
                         <p class="text-xs text-slate-500 mt-1 line-clamp-1">Học sinh THCS (từ 11 đến 15 tuổi) chưa đủ tuổi điều khiển xe máy điện hay xe dưới 50cc...</p>
                     </div>
                     <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
@@ -498,38 +386,6 @@
                 <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
                     Theo Luật Giao thông Đường bộ, người từ <strong>đủ 16 tuổi trở lên</strong> mới được đi xe máy điện/xe dưới 50cc. Học sinh cấp 2 chưa đủ tuổi, các em chỉ được đi xe đạp điện (vận tốc ≤ 25km/h).
                     <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=800" class="w-full h-auto rounded-2xl my-2.5 max-h-80 object-cover shadow-sm" alt="An toàn giao thông học đường">
-                </div>
-            </div>
-
-            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-amber-500" data-category="giaothong">
-                <div class="p-4 flex justify-between items-start gap-3">
-                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-amber-100 text-amber-700 px-2.5 py-0.5 rounded-full">An toàn giao thông</span>
-                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">2. Bắt buộc Đội mũ bảo hiểm đạt chuẩn khi đi xe đạp điện, xe máy</h4>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Quy định cài quai mũ đúng quy cách và mức phạt hành chính theo Nghị định 100...</p>
-                    </div>
-                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    Tất cả học sinh ngồi trên xe đạp điện, xe máy bắt buộc phải đội mũ bảo hiểm đạt chuẩn, cài quai chắc chắn để bảo vệ tính mạng chính mình.
-                </div>
-            </div>
-
-            <div class="post-card bg-white rounded-2xl border border-slate-200 shadow-sm mb-3 overflow-hidden border-l-4 border-l-amber-500" data-category="giaothong">
-                <div class="p-4 flex justify-between items-start gap-3">
-                    <div onclick="togglePost(this)" class="cursor-pointer flex-1">
-                        <span class="text-xs font-bold bg-amber-100 text-amber-700 px-2.5 py-0.5 rounded-full">An toàn giao thông</span>
-                        <h4 class="font-bold text-slate-800 text-sm md:text-base mt-1">3. Xây dựng Văn hóa Giao thông "Cổng trường An toàn - Văn minh"</h4>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-1">Nghiêm cấm dàn hàng ngang 3, hàng 4, lạng lách, thả hai tay trước cổng trường...</p>
-                    </div>
-                    <button onclick="deletePost(this)" class="admin-delete-btn text-xs text-slate-400 hover:text-red-600 p-1 transition" title="Xóa bài">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div class="post-content hidden px-4 pb-4 pt-2 border-t border-slate-100 text-xs md:text-sm text-slate-600 leading-relaxed">
-                    Học sinh đi sát lề đường bên phải, quan sát kỹ khi qua đường, tuyệt đối không đùa giỡn, dàn hàng ngang gây cản trở giao thông giờ tan trường.
                 </div>
             </div>
 
